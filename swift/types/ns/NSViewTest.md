@@ -82,7 +82,6 @@ public var allowsVibrancy: Bool { get }
 ```   
      
      
-     
 **focusRingType**
 
 ```swift
