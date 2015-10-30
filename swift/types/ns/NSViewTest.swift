@@ -86,3 +86,27 @@ override func drawRect(dirtyRect: NSRect) {
 public var focusRingType: NSFocusRingType
     public class func defaultFocusRingType() -> NSFocusRingType
 */
+
+
+
+//to rotate a shape: from orielly book
+/*
+- (void) drawRect:(NSRect)dirtyRect
+￼￼132 |
+ NSRect pathRect = NSInsetRect(self.bounds, 125, 125);
+// Create a transform that rotates the drawing by a // small amount around the origin point. CGAffineTransform rotationTransform =
+     CGAffineTransformMakeRotation(M_PI / 8.0);
+ CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
+ NSBezierPath* path = [NSBezierPath bezierPathWithRoundedRect:pathRect
+         xRadius:10 yRadius:10];
+ // Save the context before we start drawing
+[NSGraphicsContext saveGraphicsState]; // Rotate
+ CGContextConcatCTM(context, rotationTransform);
+ [[NSColor greenColor] setFill];
+[[NSColor blackColor] setStroke]; Chapter 7: Drawing Graphics in Views
+[path fill];
+        [path stroke];
+        // Restore the context.
+        [NSGraphicsContext restoreGraphicsState];
+    }
+*/
