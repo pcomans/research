@@ -1,16 +1,19 @@
-//great overview: https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CocoaViewsGuide/Introduction/Introduction.html
-//translucent window: http://stackoverflow.com/questions/24023183/how-can-i-create-yosemite-style-view-with-translucent-blurry-background
+**great overview:**   https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CocoaViewsGuide/Introduction/Introduction.html
+
+**translucent window**   http://stackoverflow.com/questions/24023183/how-can-i-create-yosemite-style-view-with-translucent-blurry-background
 
 
 
-/*
+
 NSView has three different modes in which it handles it’s content. Compared to UIView from the Cocoa Touch Frameworks, which already has a CALayer ready to use.
 Here are the different modes of an instance of the NSView Class:
 
 1. Classic view: DrawRect:dirtyRect is called to draw the screen. There is one draw back in this. All drawing takes place in the main thread. Which if performance is getting an issue can become an issue.
+
 2. Layer Backed view: The NSView now has a CALayer which is managed by the NSView. This actually takes up more memory space, but since the NSView knows of every CALayer that is underneath it. It’s system managed. View updates are called through the updatesLayer() method. The layers are drawn multithreaded by OS X.
+
 3. Layer Hosted view: In this mode the NSView has no knowledge about the CALayer or any of it’s sublayers it contains and it won’t care about it either. As a programmer you have to manage it. The NSView just shows it, but it will use drawRect:dirtyRect to draw the CALayer.
-*/
+
 
 /*
 Discussion The order that  setWantsLayer: and setLayer: are called is important, it makes the distinction between a layer-backed view, and a layer-hosting view.
