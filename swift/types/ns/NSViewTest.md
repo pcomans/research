@@ -3,7 +3,8 @@
 **Translucent window**   http://stackoverflow.com/questions/24023183/how-can-i-create-yosemite-style-view-with-translucent-blurry-background
 
 
-**NSView has three different modes** in which it handles it’s content. Compared to UIView from the Cocoa Touch Frameworks, which already has a CALayer ready to use.
+**NSView has three different modes**  
+In which it handles it’s content. Compared to UIView from the Cocoa Touch Frameworks, which already has a CALayer ready to use.
 Here are the different modes of an instance of the NSView Class:
 
 1. **Classic view:** DrawRect:dirtyRect is called to draw the screen. There is one draw back in this. All drawing takes place in the main thread. Which if performance is getting an issue can become an issue.
@@ -39,45 +40,54 @@ Swift.print("view.frame.size.height: " + "\(view.frame.size.height)")
 **MouseEvents in NSView:** (good)   
 [here](http://stackoverflow.com/questions/7504917/getting-mouse-down-event-on-superview?rq=1) 
 
-/*
-//this will fill a view with color but stroke needs more research
+**Fill a view with color (dirtyRect method)**  
+```swift
 override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
         fillColor.setFill()
          NSRectFill(dirtyRect)
 }
+```
+**Draw a rect with fill and stroke:**  
+
+```swift
+/*
+* Draws the background
 */
+override func drawRect(dirtyRect: NSRect) {
+    
+     let pathRect = NSInsetRect(self.bounds, 1, 1);
+     let path = NSBezierPath(roundedRect:pathRect, xRadius:0, yRadius:0);
+     path.lineWidth = 1
+     NSColor.whiteColor().setFill();
+     NSColor.grayColor().setStroke();
+     path.fill()
+     path.stroke()
+    
+     
+}
+```
+
+**Vibrancy:**  
 
 //maybe try this:
- /*
-    * Draws the background
-    */
-     /*
-    override func drawRect(dirtyRect: NSRect) {
-       
-        let pathRect = NSInsetRect(self.bounds, 1, 1);
-        let path = NSBezierPath(roundedRect:pathRect, xRadius:0, yRadius:0);
-        path.lineWidth = 1
-        NSColor.whiteColor().setFill();
-        NSColor.grayColor().setStroke();
-        path.fill()
-        path.stroke()
-       
-        
-    }
-     */
+   
+```swift
+ /** 
+  * AllowsVibrancy is queried when a vibrant appearance is used on a view hierarchy. When allowsVibrancy returns YES, the view will have an appropriate measure taken to ensure it is vibrant on top of its given material.
+  * Specific subclasses, such as NSControl, will answer this question based on the artwork they draw for a given appearance.
+  */
+ 
+/**
+ * @available(OSX 10.10, *)
+ * public var allowsVibrancy: Bool { get }
+ */
+```   
      
      
      
        
-    /* allowsVibrancy is queried when a vibrant appearance is used on a view hierarchy. When allowsVibrancy returns YES, the view will have an appropriate measure taken to ensure it is vibrant on top of its given material.
-     
-     Specific subclasses, such as NSControl, will answer this question based on the artwork they draw for a given appearance.
-     */
-   /*
- @available(OSX 10.10, *)
-    public var allowsVibrancy: Bool { get }
-*/
+   
 
 
 
