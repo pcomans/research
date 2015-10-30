@@ -6,4 +6,4 @@ http://stackoverflow.com/questions/20632365/draw-gradient-along-a-curved-uibezie
 ![circle gradient example](https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-10-29%20at%2018.45.34.png) 
 
 PaintCode example output: (greate for organizing styles etc)  
-[here](http://www.raywenderlich.com/36341/paintcode-tutorial-dynamic-buttons) 
+[here](http://www.raywenderlich.com/36341/paintcode-tutorial-dynamic-buttons) ””
