@@ -76,32 +76,22 @@ override func drawRect(dirtyRect: NSRect) {
  /** 
   * AllowsVibrancy is queried when a vibrant appearance is used on a view hierarchy. When allowsVibrancy returns YES, the view will have an appropriate measure taken to ensure it is vibrant on top of its given material.
   * Specific subclasses, such as NSControl, will answer this question based on the artwork they draw for a given appearance.
+  * @available(OSX 10.10, *)
   */
- 
-/**
- * @available(OSX 10.10, *)
- * public var allowsVibrancy: Bool { get }
- */
+public var allowsVibrancy: Bool { get }
 ```   
      
      
      
-       
-   
+**focusRingType**
 
-
-
-//this is interesting:
-
-/*
+```swift
 public var focusRingType: NSFocusRingType
-    public class func defaultFocusRingType() -> NSFocusRingType
-*/
+public class func defaultFocusRingType() -> NSFocusRingType
+```
 
-
-
-//to rotate a shape: from orielly book
-/*
+**To rotate a shape:** (from orielly book)
+```objc
 - (void) drawRect:(NSRect)dirtyRect
 ￼￼132 |
  NSRect pathRect = NSInsetRect(self.bounds, 125, 125);
@@ -120,4 +110,4 @@ public var focusRingType: NSFocusRingType
         // Restore the context.
         [NSGraphicsContext restoreGraphicsState];
     }
-*/
+```
