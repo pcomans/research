@@ -52,7 +52,7 @@ class NSButtonTest {
 }
 ```
 
-**Styling a button cell**
+**Button BackgroundColor with button cell**
 ```swift
 //Supports fill not stroke
 (button.cell as! NSButtonCell).bordered = false//The background color is used only when drawing borderless buttons.
@@ -60,41 +60,28 @@ class NSButtonTest {
 
 ```
 
+**Setting button style:**
 
-/*
-setting button style:
+```swift
 let button = NSButton(frame: NSRect(x: 0, y: 0, width: width, height: height))
-        
-        //button.highlight(true)
-        let buttonCell:NSButtonCell = button.cell! as! NSButtonCell
-        buttonCell.bezelStyle = bezelStyle//NSBezelStyle.SmallSquareBezelStyle//NSBezelStyle.RoundedBezelStyle
-        
-
-
-
-*/
-¨
-/*
-Add cursor to buttons:
-
-- (void)resetCursorRects
-{
+//button.highlight(true)
+let buttonCell:NSButtonCell = button.cell! as! NSButtonCell
+buttonCell.bezelStyle = bezelStyle//NSBezelStyle.SmallSquareBezelStyle//NSBezelStyle.RoundedBezelStyle  
+```
+**Add cursor to buttons:**
+```objc
+- (void)resetCursorRects{
     if (self.cursor) {
         [self addCursorRect:[self bounds] cursor: self.cursor];
     } else {
         [super resetCursorRects];
     }
 }
+```
 
-*/
-
-
-/*
-chaining text color of NSButton
-https://www.youtube.com/watch?v=zgBG6IemE8M
-
+**Changing text color of NSButton:**  
+[here](https://www.youtube.com/watch?v=zgBG6IemE8M) 
+```swift
 button.title = "Test"
-
 button.font = NSFont(name: "Century Gothic Bold", size: 26)
-*/
-
+```
