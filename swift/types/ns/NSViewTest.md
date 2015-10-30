@@ -1,11 +1,11 @@
-**great overview:**   https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CocoaViewsGuide/Introduction/Introduction.html
+**Great overview:**   https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CocoaViewsGuide/Introduction/Introduction.html
 
-**translucent window**   http://stackoverflow.com/questions/24023183/how-can-i-create-yosemite-style-view-with-translucent-blurry-background
-
-
+**Translucent window**   http://stackoverflow.com/questions/24023183/how-can-i-create-yosemite-style-view-with-translucent-blurry-background
 
 
-NSView has three different modes in which it handles it’s content. Compared to UIView from the Cocoa Touch Frameworks, which already has a CALayer ready to use.
+
+
+**NSView has three different modes** in which it handles it’s content. Compared to UIView from the Cocoa Touch Frameworks, which already has a CALayer ready to use.
 Here are the different modes of an instance of the NSView Class:
 
 1. Classic view: DrawRect:dirtyRect is called to draw the screen. There is one draw back in this. All drawing takes place in the main thread. Which if performance is getting an issue can become an issue.
@@ -15,8 +15,8 @@ Here are the different modes of an instance of the NSView Class:
 3. Layer Hosted view: In this mode the NSView has no knowledge about the CALayer or any of it’s sublayers it contains and it won’t care about it either. As a programmer you have to manage it. The NSView just shows it, but it will use drawRect:dirtyRect to draw the CALayer.
 
 
-/*
-Discussion The order that  setWantsLayer: and setLayer: are called is important, it makes the distinction between a layer-backed view, and a layer-hosting view.
+
+**Discussion** The order that  setWantsLayer: and setLayer: are called is important, it makes the distinction between a layer-backed view, and a layer-hosting view.
 
 A layer-backed view is a view that is backed by a Core Animation layer. Any drawing done by the view is the cached in the backing layer. You configured a layer-backed view by simply invoking  setWantsLayer: with a value of YES. The view class will automatically create the a backing layer for you, and you use the view class’s drawing mechanisms. When using layer-backed views you should never interact directly with the layer.
 
