@@ -1,3 +1,5 @@
+**If you ever need deep copy of a Dictionary:** Drawkit- NSDictionary+DeepCopy.m
+
 //dictionaries are like associative arrays
 //the following two declarations are equivalent:
 /**
