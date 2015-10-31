@@ -84,3 +84,14 @@ The square line cap () is sometimes called a projected line cap. Quartz projects
 
 **kCGLineCapRound**  
 When the line cap is a round line cap (), Quartz paints a semi- circular arc at each endpoint. The diameter of the arc is the line width.
+
+
+#### Misc
+
+**CGContextClosePath** 
+prior to calling CGContextStrokePath to stroke the path, it is closed by calling
+
+
+#### Line Dash
+
+continue here
