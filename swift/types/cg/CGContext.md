@@ -101,3 +101,16 @@ CGContextSetLineDash
 
 
 #### Filling Paths
+
+**The nonzero winding number rule** takes into account the direction of the path segments that make up the path. To determine whether a point is in the interior of a path, Quartz conceptually constructs a ray from that point out to infinity. It counts the number of times the ray intersects the path where the path travels from right to left and subtracts that count from the number of times the ray intersects the path where the path goes left to right.The resulting number is the winding number
+Note: fill that path using the nonzero winding number rule by using the function CGContextFillPath or the function CGContext- DrawPath with the painting mode kCGPathFill
+Note: Stroking a path can be combined with filling by using the function CGContext- DrawPath with the painting mode kCGPathFillStroke to use the nonzero winding number fill rule
+
+**The second fill rule available in Quartz is the even-odd fill rule.** For this rule, the direction of the path segments is unimportant. To determine whether a point is in the interior of a path using the even-odd fill rule, Quartz conceptually con- structs a ray from that point out to infinity. It counts the number of times the ray intersects the path. If the number of intersections is odd, the point is inside the path. If the number of intersections is even, the point is outside the path. The even-odd fill rule is rarely used. Its use is typically confined to emulating another graphics model such as QuickDraw
+Note: To fill the current path using the even-odd fill rule, you can use the function CGContextEOFillPath or the function CGContextDrawPath with the painting mode kCGPathEOFill.
+Note: kCGPathEOFillStroke to use the even-odd fill rule. These painting modes first fill, then stroke the path.
+
+**Closing a fill:**  
+Regardless of the fill rule applied, to fill an open subpath, Quartz must implicitly close it prior to filling. Operations that fill a path implicitly close all open sub- paths prior to filling. Operations that both fill and stroke only implicitly close the path for the filling portion of the operation; the stroke portion of the operation is applied without closing any open subpaths that exist. If you want the path to be closed prior to stroking, you must explicitly close it with CGContextClosePath.
+
+Note: Convenince fill methods for rects: Quartz has convenience functions for filling rectangles. The function CGContext- FillRect allows you to fill a specified rectangle without performing any explicit path construction. The function CGContextFillRects allows you to fill a specified array of rectangles without any explicit path construction. These functions ignore any current path in the context and, after they return, the current path in the context is empty. Quartz uses the nonzero winding number fill rule when filling rectangles with these convenience functions.
