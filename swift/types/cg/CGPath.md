@@ -140,6 +140,7 @@ CGPathGetBoundingBox(self.path);
 
 
 **Adding shaddow to only one rectangle:**
+
 ```objc
 - (void) drawRectAtTopOfScreen{
    /* Get the handle to the current context */ CGContextRef currentContext =
@@ -180,4 +181,64 @@ CGPathGetBoundingBox(self.path);
 
 ```objc
 
+```
+
+
+
+
+
+**drawing an ellipse or circle:**
+```objc
+override func drawRect(rect: CGRect){
+    let context = UIGraphicsGetCurrentContext()
+    CGContextSetLineWidth(context, 4.0)
+    CGContextSetStrokeColorWithColor(context,
+            UIColor.blueColor().CGColor)
+    let rectangle = CGRectMake(60,170,200,80)
+    CGContextAddEllipseInRect(context, rectangle)
+    CGContextStrokePath(context)
+}
+```
+
+
+**Drawing an Arc**
+An arc may be drawn by specifying two tangent points and a radius using the CGContextAddArcToPoint() function, for example:
+```objc
+override func drawRect(rect: CGRect){
+    let context = UIGraphicsGetCurrentContext()
+    CGContextSetLineWidth(context, 4.0)
+    CGContextSetStrokeColorWithColor(context,
+        UIColor.blueColor().CGColor)
+    CGContextMoveToPoint(context, 100, 100)
+    CGContextAddArcToPoint(context, 100,200, 300,200, 100)
+    CGContextStrokePath(context)
+}
+```
+
+**Drawing a Cubic Bézier Curve**
+A cubic Bézier curve may be drawn by moving to a start point and then passing two control points and an end point through to the CGContextAddCurveToPoint() function:
+
+```objc
+override func drawRect(rect: CGRect) {
+    let context = UIGraphicsGetCurrentContext()
+    CGContextSetLineWidth(context, 4.0)
+    CGContextSetStrokeColorWithColor(context,
+            UIColor.blueColor().CGColor)
+    CGContextMoveToPoint(context, 10, 10)
+    CGContextAddCurveToPoint(context, 0, 50, 300, 250, 300, 400)
+    CGContextStrokePath(context)
+} 
+```
+**Drawing a Quadratic Bézier Curve**
+A quadratic Bézier curve is drawn using the CGContextAddQuadCurveToPoint() function, providing a control and end point as arguments having first moved to the start point:
+```objc
+override func drawRect(rect: CGRect){
+    let context = UIGraphicsGetCurrentContext()
+    CGContextSetLineWidth(context, 4.0)
+    CGContextSetStrokeColorWithColor(context,
+        UIColor.blueColor().CGColor)
+    CGContextMoveToPoint(context, 10, 200)
+    CGContextAddQuadCurveToPoint(context, 150, 10, 300, 200)
+    CGContextStrokePath(context)
+}
 ```

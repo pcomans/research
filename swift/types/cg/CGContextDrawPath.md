@@ -1,4 +1,4 @@
-From this post: 
+**From this post:**
 [here](http://stackoverflow.com/questions/12467779/iphone-separate-stroke-and-fill-not-working) 
 
 You call CGContextDrawPath, CoreGraphics draw (fill or stroke) the CGPathRef that you previously added to the context, and then remove the CGPathRef from that context has it has been used.
