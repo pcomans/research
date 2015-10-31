@@ -1,4 +1,5 @@
 Prety nice gradient UI tutorial: [raywenderlich](http://www.raywenderlich.com/90693/modern-core-graphics-with-swift-part-2) 
+nice [her](http://code.tutsplus.com/tutorials/an-introduction-to-quartz-2d--cms-24267)   
 
 **CGContextDrawLinearGradient**
 on a graphics context. This procedure takes five parameters:
