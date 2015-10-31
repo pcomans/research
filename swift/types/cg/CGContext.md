@@ -1,7 +1,13 @@
+#### Misc
+
+**CGContextClosePath** 
+prior to calling CGContextStrokePath to stroke the path, it is closed by calling
+
 **Important**
 Changes to the current transformation matrix (CTM) do not affect the coordinates of path segments already added to the current path.
 
-**Path Construction Primitives:**  
+
+#### Path Construction Primitives:   
 All paths in Quartz can be constructed using one or more of the following five basic path construction primitive functions, regardless of the complexity of the path.
 ```
 CGContextMoveToPoint begins a new subpath in the current path.
@@ -31,7 +37,7 @@ I cpx,cpy, the x and y coordinates for the control point.
 I p1x,p1y, the x and y coordinates for the endpoint of the curve.
 ```
 
-**Path Construction Convenience Functions**
+#### Path Construction Convenience Functions  
 ```
 CGContextAddRect //adds a closed rectangular subpath to the current path
 CGContextAddLines //To add a number of connected line segments at once, you can use the function . You supply an array of points and Quartz constructs a new subpath using these points. The first point in the array is the initial point on the subpath. The first line segment is constructed from the initial point to the second point in the array. Each subsequent line segment is constructed from the trailing endpoint of the previous line segment to the next point in the array. The final result is a series of connected line segments. When CGContextAddLines returns, the current point is the last point in the array of points passed to the function. The resulting subpath is open; you must call CGContextClosePath if you want to close it.
@@ -47,6 +53,7 @@ CGContextAddArcToPoint provides another way to add an arc seg- ment to a path. T
 ![example](https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-10-31%20at%2016.07.50.png) 
 ![CGContextAddArcToPoint example](https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-10-31%20at%2015.54.35.png) 
 
+#### Stroking paths
 
 **CGContextStrokePath** & **CGContextDrawPath** with the painting mode **kCGPathStroke**  
 CGContextStrokePath or the function CGContextDrawPath with the painting mode kCGPathStroke. This usage of these two functions is identical, so use the one that suits your taste. Stroking a path can be combined with filling of that path by using the function CGContextDraw- Path with the painting modes kCGPathFillStroke or kCGPathEOFillStroke. These painting modes first fill and then stroke the path.
@@ -86,12 +93,11 @@ The square line cap () is sometimes called a projected line cap. Quartz projects
 When the line cap is a round line cap (), Quartz paints a semi- circular arc at each endpoint. The diameter of the arc is the line width.
 
 
-#### Misc
-
-**CGContextClosePath** 
-prior to calling CGContextStrokePath to stroke the path, it is closed by calling
 
 
 #### Line Dash
 
-continue here
+CGContextSetLineDash
+
+
+#### Filling Paths
