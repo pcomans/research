@@ -13,3 +13,25 @@ CGContextClosePath ends the current path.
 
 1. The first step when constructing a new path, whether constructing it with the path primitive functions or convenience functions, is to discard any existing path with the function CGContextBeginPath.
 2. the next step is to call CGContextMoveToPoint to establish the initial point of the first subpath; this also establishes a current point. You then add segments to the path using the other path construction primitives
+3. you can begin a new subpath in the cur- rent path that you are constructing by calling CGContextMoveToPoint.
+4. CGContextAddLineToPoint adds a straight-line segment from the current point to a new point in user space
+
+
+**CGContextAddCurveToPoint** adds a cubic Bézier curve segment to a Quartz path. This function takes the following parameters:
+```
+context, the graphics context to add the path to.
+I cp1x,cp1y, the x and y coordinates for the first control point.
+I cp2x,cp2y, the x and y coordinates for the second control point. I p1x,p1y, the x and y coordinates for the endpoint of the curve.
+```
+
+**CGContextAddQuadCurveToPoint** adds a quadratic Bézier curve seg- ment to a Quartz path. This function takes the following parameters:
+```
+context, the graphics context to add the path to.
+I cpx,cpy, the x and y coordinates for the control point.
+I p1x,p1y, the x and y coordinates for the endpoint of the curve.
+```
+
+**Path Construction Convenience Functions**
+```
+CGContextAddRect //adds a closed rectangular subpath to the current path
+```
