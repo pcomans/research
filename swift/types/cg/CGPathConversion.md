@@ -1,7 +1,7 @@
 
 **needs work**
 ```swift
-
+//convert nsBezier to cgbezier or the other way around i think
 let nsBezierPath:NSBezierPath = NSBezierPath()
         let pathPtr = UnsafeMutablePointer<NSBezierPath>.alloc(1)
         pathPtr.initialize(nsBezierPath)
