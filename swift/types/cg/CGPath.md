@@ -85,7 +85,7 @@ CGPathGetBoundingBox(self.path);
 }
 ```
 
-draw multiple rectangles at once
+**Draw multiple rectangles at once**
 
 ```objc
 - (void)drawRect:(CGRect)rect{ // Drawing code
