@@ -196,7 +196,7 @@ CGPathGetBoundingBox(self.path);
 ```
 
 
-Here is an example where we achieve the exact same effect we saw in Figure 29 by applying a translation transformation to the CTM instead of directly to our rectangle:
+**Applying a translation transformation to the CTM instead of directly to our rectangle:**
 
 ```objc
 - (void)drawRect:(CGRect)rect{ // Drawing code
@@ -228,12 +228,12 @@ Here is an example where we achieve the exact same effect we saw in Figure 29 by
 ```
 
 
-Scaling Shapes Drawn on Graphic Contexts
+**Scaling Shapes Drawn on Graphic Contexts**
 ```objc
 - (void)drawRect:(CGRect)rect{ // Drawing code
    /* Create the path first. Just the path handle. */ CGMutablePathRef path = CGPathCreateMutable();
-   /* Here are our rectangle boundaries */ CGRect rectangle = CGRectMake(10.0f, 10.0f,
-   200.0f, 300.0f);
+   /* Here are our rectangle boundaries */ 
+   CGRect rectangle = CGRectMake(10.0f, 10.0f,200.0f, 300.0f);
    /* Add the rectangle to the path */ CGPathAddRect(path,
    NULL, rectangle);
    /* Get the handle to the current context */ CGContextRef currentContext =
@@ -254,7 +254,7 @@ Scaling Shapes Drawn on Graphic Contexts
    /* Dispose of the path */ CGPathRelease(path);
 }
 ```
-Scaling just the rect:
+**Scaling just the rect:**
 ```objc
 /* Scale the rectangle to half its size */ CGAffineTransform transform =
 CGAffineTransformMakeScale(0.5f, 0.5f);
