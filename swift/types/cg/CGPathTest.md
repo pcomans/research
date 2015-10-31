@@ -1,58 +1,32 @@
-//getting bounds of a path:
-/*
+**CGPathCreateMutable function**
+Creates a new mutable path of type CGMutablePathRef and returns its handle. We should dispose of this path once we are done with it, as you will soon see.
+
+**CGPathMoveToPoint procedure**
+Moves the current pen position on the path to the point specified by a parameter of type CGPoint.
+
+**CGPathAddLineToPoint procedure**
+Draws a line segment from the current pen position to the specified position (again, specified by a value of type CGPoint).
+
+**CGContextAddPath procedure**
+Adds a given path (specified by a path handle) to a graphics context, ready for drawing.
+
+**CGContextDrawPath procedure**
+Draws a given path on the graphics context.
+
+**CGPathRelease procedure**
+Releases the memory allocated for a path handle.
+
+**CGPathAddRect procedure**
+Adds a rectangle to a path. The rectangle’s boundaries are specified by a CGRect structure.
+There are three important drawing methods that you can ask the CGContextDrawPath procedure to perform:
+Draws a line (stroke) to mark the boundary or edge of the path, using the currently selected stroke color.
+
+**kCGPathFill**
+Fills the area surrounded by the path with the currently selected fill color.
+
+**kCGPathFillStroke**
+Combines stroke and fill. Uses the currently selected fill color to fill the path, and the currently selected stroke color to draw the edge of the path. We’ll see an ex- ample of this method in the following section.
+
+**Getting bounds of a path**
 CGPathGetBoundingBox(self.path);
-*/
 
-/*
-
-needs work
-
-let nsBezierPath:NSBezierPath = NSBezierPath()
-        let pathPtr = UnsafeMutablePointer<NSBezierPath>.alloc(1)
-        pathPtr.initialize(nsBezierPath)
-        
-        let infoPtr = UnsafeMutablePointer<Void>(pathPtr)
-        
-        // I hope the CGPathApply call manages the deallocation of the pointers passed to the applier
-        // function, but I'm not sure.
-        CGPathApply(path, infoPtr) { (infoPtr, elementPtr) -> Void in
-            let path = UnsafeMutablePointer<NSBezierPath>(infoPtr).memory
-            let element = elementPtr.memory
-            
-            let pointsPtr = element.points
-            
-            switch element.type {
-            case .MoveToPoint:
-                path.moveToPoint(pointsPtr.memory)
-                
-            case .AddLineToPoint:
-                path.lineToPoint(pointsPtr.memory)
-                
-            case .AddQuadCurveToPoint:
-                let firstPoint = pointsPtr.memory
-                let secondPoint = pointsPtr.successor().memory
-                
-                let currentPoint = path.currentPoint
-                let x = (currentPoint.x + 2 * firstPoint.x) / 3
-                let y = (currentPoint.y + 2 * firstPoint.y) / 3
-                let interpolatedPoint = CGPoint(x: x, y: y)
-                
-                let endPoint = secondPoint
-                
-                path.curveToPoint(endPoint, controlPoint1: interpolatedPoint, controlPoint2: interpolatedPoint)
-                
-            case .AddCurveToPoint:
-                let firstPoint = pointsPtr.memory
-                let secondPoint = pointsPtr.successor().memory
-                let thirdPoint = pointsPtr.successor().successor().memory
-                
-                path.curveToPoint(thirdPoint, controlPoint1: firstPoint, controlPoint2: secondPoint)
-                
-            case .CloseSubpath:
-                path.closePath()
-            }
-            
-            pointsPtr.destroy()
-        }
-
-*/
