@@ -262,12 +262,16 @@ CGAffineTransformMakeScale(0.5f, 0.5f);
 &transform, rectangle);
 ```
 
-
+**Rotating the Context:**
 ```objc
-
+//Just like scaling and translation, you can apply rotation translation to shapes drawn on paths, and graphics contexts. You can use the CGAffineTransformMakeRotation function and pass the rotation value in radians to get back a rotation transformation, of type CGAffineTransform. You can then apply this transformation to paths and shapes. If you want to rotate the whole context by a specific angle, you must use the CGContext RotateCTM procedure.
 ```
+**Rotating just the rect: **
 ```objc
-
+/* Rotate the rectangle 45 degrees clockwise */ CGAffineTransform transform =
+CGAffineTransformMakeRotation((45.0f * M_PI) / 180.0f);
+/* Add the rectangle to the path */ CGPathAddRect(path,
+&transform, rectangle);
 ```
 ```objc
 
