@@ -34,4 +34,12 @@ I p1x,p1y, the x and y coordinates for the endpoint of the curve.
 **Path Construction Convenience Functions**
 ```
 CGContextAddRect //adds a closed rectangular subpath to the current path
+CGContextAddLines //To add a number of connected line segments at once, you can use the function . You supply an array of points and Quartz constructs a new subpath using these points. The first point in the array is the initial point on the subpath. The first line segment is constructed from the initial point to the second point in the array. Each subsequent line segment is constructed from the trailing endpoint of the previous line segment to the next point in the array. The final result is a series of connected line segments. When CGContextAddLines returns, the current point is the last point in the array of points passed to the function. The resulting subpath is open; you must call CGContextClosePath if you want to close it.
+CGContextAddArc takes the following parameters:
+	context //the graphics context to add the path to.
+	centerXcenterY// the x and y coordinates for the center of the circle thatdefines the arc.
+	radius// the radius of the circle that defines the arc.
+	startAngle// the starting angle for the arc.
+	endAngle// the ending angle for the arc.
+	clockwise// the direction along the circle to create the arc. If true, the direction of the arc is clockwise; otherwise it is counterclockwise.
 ```
