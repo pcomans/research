@@ -56,3 +56,31 @@ Stroked rectangles don’t require any path construction when you use the conve-
 
 **CGContextSetLineWidth**.  
 The default line width is 1 unit. Because the line width is specified in Quartz user space units, it is affected by changes to the CTM
+
+#### Mitter:
+
+**kCGLineJoinMiter** 
+For this type of join, Quartz extends the outer edges of the stroke until they meet at an angle, similar to the corner on a picture frame.
+
+**kCGLineJoinRound**  
+Quartz draws a circular arc around the point where the segments meet. The diameter of this circle is the line width, resulting in a rounded corner.
+
+**kCGLineJoinBevel**  
+Quartz finishes the segments with butt line caps, leaving a notch at the corner. (See the next section “Line Caps” for more discussion of butt line caps.) The resulting notch beyond the segments is filled in with a triangle, resulting in a beveled corner.
+
+**Note:** When the join style is a miter join, Quartz replaces a miter join with a bevel join if the angle between two connected path segments is too small; this avoids sharp spikes. The miter limit determines the angle when a miter join is replaced by a bevel join; it only applies when the Quartz line join is kCGLineJoinMiter. The miter limit is based on the miter length. The miter length is the distance between the point where the inner edges of the stroke intersect and the point where the outer edges of the stroke intersect. Figure 6.13 illustrates the miter length. If the ratio of the miter length and the line width exceeds the miter limit, Quartz replaces a miter join with a bevel join.
+The ratio between the miter length and the line width is expressed in terms of the angle θ between the two segments:
+ miterlimit =  miterlength /linewidth = 1 / (sin*(θ/2))
+
+**Note:** The default Quartz miter limit is 10. This value causes miter joins to be replaced by beveled joins when the angle between the segments is less than about 11 degrees. A larger miter limit allows the miter length to be larger, that is, allows larger spikes. Figure 6.14 shows the results of the miter limit. In the lower por- tion of the figure, the miter limit is the default value of 10. As the angle between the two connected path segments gets smaller, the miter join is replaced by a beveled join. The upper portion of the figure shows a large miter limit with a small angle between the two connected path segments; the sharp spike is the
+
+#### Caps
+
+**kCGLineCapButt**  
+is the default. Quartz stops the stroke at the endpoint of the open path segment and squares off the end. There is no projec- tion beyond the end of the path.
+
+**kCGLineCapSquare**  
+The square line cap () is sometimes called a projected line cap. Quartz projects the stroke beyond the endpoint by one-half the line width and squares off the end of the stroke.
+
+**kCGLineCapRound**  
+When the line cap is a round line cap (), Quartz paints a semi- circular arc at each endpoint. The diameter of the arc is the line width.
