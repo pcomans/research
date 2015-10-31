@@ -47,3 +47,12 @@ CGContextAddArcToPoint provides another way to add an arc seg- ment to a path. T
 ![example](https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-10-31%20at%2016.07.50.png) 
 ![CGContextAddArcToPoint example](https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-10-31%20at%2015.54.35.png) 
 
+
+**CGContextStrokePath** & **CGContextDrawPath** with the painting mode **kCGPathStroke**  
+CGContextStrokePath or the function CGContextDrawPath with the painting mode kCGPathStroke. This usage of these two functions is identical, so use the one that suits your taste. Stroking a path can be combined with filling of that path by using the function CGContextDraw- Path with the painting modes kCGPathFillStroke or kCGPathEOFillStroke. These painting modes first fill and then stroke the path.
+
+**CGContextStrokeRect** & **CGContextStrokeRectWithWidth**  
+Stroked rectangles don’t require any path construction when you use the conve- nience functions CGContextStrokeRect and CGContextStrokeRectWithWidth
+
+**CGContextSetLineWidth**.  
+The default line width is 1 unit. Because the line width is specified in Quartz user space units, it is affected by changes to the CTM
