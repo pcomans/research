@@ -30,3 +30,13 @@ Combines stroke and fill. Uses the currently selected fill color to fill the pat
 **Getting bounds of a path**
 CGPathGetBoundingBox(self.path);
 
+
+
+```swift
+/* Start from top-left */ 
+CGPathMoveToPoint(path, NULL,screenBounds.origin.x, screenBounds.origin.y);
+/* Draw a line from top-left to bottom-right of the screen */
+CGPathAddLineToPoint(path, NULL,screenBounds.size.width, screenBounds.size.height);
+```
+
+
