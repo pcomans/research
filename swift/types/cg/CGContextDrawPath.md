@@ -9,7 +9,6 @@ Besides, it would be more effective to add your path to your context only if you
 
 As you pointed out yourself, anyway, there is a constant to both fill and stroke at the same time, called kCGPathFillStroke. So your code may look like this:
 ```swift
-
 // Don't draw anything if both colors are nil
 if (self.graphic.fillColor || self.graphic.strokeColor) {
   // Build and add your CGPathRef here
@@ -30,7 +29,6 @@ if (self.graphic.fillColor || self.graphic.strokeColor) {
   }
   CGContextDrawPath(context, mode);
 }
-
 
 ```
 **That way:**
