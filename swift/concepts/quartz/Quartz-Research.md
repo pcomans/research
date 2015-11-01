@@ -2,6 +2,7 @@ Todos:
 - [ ] Skim the second Quartz book to see if you missed something in the first
 - [ ] Go through apples Quartz book and online website to add stuff that are new etc. 
 - [ ] Add more imagery
+- [ ] Read Saving and Restoring a Coordinate System page  01
 
 **Goals of this research paper:**     
 This research paper should result in a comprehensive Graphics Util lib, so that you can work efficiently with quartz
@@ -235,27 +236,56 @@ Changing colors after the fact
 
 ## Graphics State Parameters  
 *Param* - *Default value* - *Description*
-CTM - Context dependent - The current transformation matrix. Determines the mapping of coordinates from user space to device space.
-Clipping area - Context dependent - The clipping area is the only portion of the drawing canvas into which Quartz renders.
-Fill color - DeviceGray opaque black- The color space and the component values, plus an alpha value, used by Quartz when performing fill operations and the painting of image masks. 
-Stroke color - DeviceGray opaque black - The color space and the component values, plus an alpha value, used by Quartz when performing stroking operations.
-Line width - 1.0 - The thickness, in user space units, that Quartz uses when stroking paths.
-Line cap - kCGLineCapButt - The style Quartz uses to paint open endpoints on a subpath when stroking.
-Line join - kCGLineJoinMiter - The style Quartz uses to paint the join of connected path segments when stroking.
-Miter limit - 10.0 - Determines the angle between connected path segments where Quartz replaces a miter join with a bevel join when str
-Line dash - A solid line - The dash pattern Quartz uses when stroking paths.
-Alpha - 1.0 - A global alpha value that applies an additional alpha value to all drawing in the context.
-Rendering intent - kCGRenderingIntentDefault - The rendering intent applied when painting paths, text, or image masks.
-Interpolation quality - kCGInterpolationDefault  - The interpolation quality to apply when rendering sampled images.
-Should anti-alias - true, for those contexts that support anti-aliasing -  A Boolean value that determines whether Quartz anti-aliases when rendering.
-Shadow - No shadow - Determines the shadow applied when rendering. Panther and later versions only.
-Pattern phase - CGSizeZero - The offset to the starting point of a pattern.
-Should smooth fonts - true, for those contexts that support font smoothing - A Boolean value that determines whether Quartz should smooth fonts when drawing text. Jaguar and later versions only.
-Text drawing mode - kCGTextFill - The painting mode Quartz uses when drawing text.
-Font - None - The font Quartz uses when drawing text.
-Font size - The point size Quartz uses when drawing text.
-Character spacing - An additional spacing that Quartz adds after each text character when drawing text.
-Blend mode - Determines how Quartz composites source drawing to the destination. Available in Tiger and later versions only.
-
+- CTM - Context dependent - The current transformation matrix. Determines the mapping of coordinates from user space to device space.
+- Clipping area - Context dependent - The clipping area is the only portion of the drawing canvas into which Quartz renders.
+- Fill color - DeviceGray opaque black- The color space and the component values, plus an alpha value, used by Quartz when performing fill operations and the painting of image masks. 
+- Stroke color - DeviceGray opaque black - The color space and the component values, plus an alpha value, used by Quartz when performing stroking operations.
+- Line width - 1.0 - The thickness, in user space units, that Quartz uses when stroking paths.
+- Line cap - kCGLineCapButt - The style Quartz uses to paint open endpoints on a subpath when stroking.
+- Line join - kCGLineJoinMiter - The style Quartz uses to paint the join of connected path segments when stroking.
+- Miter limit - 10.0 - Determines the angle between connected path segments where Quartz replaces a miter join with a bevel join when str
+- Line dash - A solid line - The dash pattern Quartz uses when stroking paths.
+- Alpha - 1.0 - A global alpha value that applies an additional alpha value to all drawing in the context.
+- Rendering intent - kCGRenderingIntentDefault - The rendering intent applied when painting paths, text, or image masks.
+- Interpolation quality - kCGInterpolationDefault  - The interpolation quality to apply when rendering sampled images.
+- Should anti-alias - true, for those contexts that support anti-aliasing -  A Boolean value that determines whether Quartz anti-aliases when rendering.
+- Shadow - No shadow - Determines the shadow applied when rendering. Panther and later versions only.
+- Pattern phase - CGSizeZero - The offset to the starting point of a pattern.
+- Should smooth fonts - true, for those contexts that support font smoothing - A Boolean value that determines whether Quartz should smooth fonts when drawing text. Jaguar and later versions only.
+- Text drawing mode - kCGTextFill - The painting mode Quartz uses when drawing text.
+- Font - None - The font Quartz uses when drawing text.
+- Font size - The point size Quartz uses when drawing text.
+- Character spacing - An additional spacing that Quartz adds after each text character when drawing text.
+- Blend mode - Determines how Quartz composites source drawing to the destination. Available in Tiger and later versions only.- 
 
 Note: If you obtain a context from a framework or another source, you should not assume the context parameters are set to the values you need. You need to set the graphics state parameters to those appropriate for your drawing task.
+
+**CGContextSaveGState**  
+makes a copy of the current graphics state in the context and pushes that copy onto the top of the graphics state stack. The exe- cution of CGContextSaveGState does not modify any of the values in the current graphics state.
+**CGContextRestoreGState**  
+pops off (or removes) the topmost graphics state on the graphics state stack and it becomes the current graphics state in the context.
+
+**Note:** You save and restore these GStates when you need to change them.  
+**Note:** you can save the GState to a variable (code needed) or just roll with it and resore many times until you reach the first GState in the stack. (This process needs a little practice to understand) (remeber the save and restore pushes and pops items on an array)  
+**Note:** I think you are better served doing transforming on the path before you add it to the context  
+**Note:** I think its better to clear the CGContext and just recreate everything again than messing with saving and restoring GStates. It seems very un-intitive. Unless performance is an issue not using them that is.  
+
+**IMPORTANT:** Saving and restoring the graphics state is a relatively cheap operation. You should use CGContextSaveGState and CGContextRestoreGState to manage the graphics state as needed rather than working hard to avoid their use.  
+**IMPORTANT:** Every call you make to CGContextSaveGState must be balanced with a subsequent call to CGContextRestoreGState. Failing to do so produces 
+
+**Functions that modify the GState:**  
+- CGContextSetLineWidth  
+- CGContextScaleCTM
+- CGContextTranslateCTM
+- CGContextRotateCTM
+- CGContextClip
+- CGContextTranslateCTM
+- CGContextSetFillColorWithColor
+- CGContextFillPath
+- CGContextScaleCTM
+- CGContextSetLineDash
+- CGContextStrokePath
+
+Context clipping example:(code example does exist)  
+<img width="370" alt="context clipping example" src="https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-11-01%20at%2010.55.53.png">
+
