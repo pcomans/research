@@ -335,3 +335,7 @@ void drawQuartzRomanText(CGContextRef context) {
 
 <img width="270" alt="output from the above code" src="https://www.dropbox.com/s/7tnb1vokx0ecsp0/Screen%20Shot%202015-11-02%20at%2009.02.00.png?raw=1">
 
+#Text Matrix 
+The text matrix is a matrix that you can use with Quartz text drawing to apply additional transformations in addition to those of the CTM. The text matrix can be used to apply scaling or other coordinate transfor- mations to text, in addition to those that the CTM applies to all graphics.    
+
+demonstrates how the text matrix affects Quartz text drawing by using the text matrix to apply text scaling, flipping, and positioning of text. The code consists of the routine drawQuartzTextWithTextMatrix and the supporting routine showFlippedTextAtPoint. Executing the code produces the output shown:  
