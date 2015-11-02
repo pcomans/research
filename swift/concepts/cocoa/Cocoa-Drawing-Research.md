@@ -1,3 +1,5 @@
+- [ ] add pictures to these examples
+
 **gradient in rect**
 http://www.katoemba.net/makesnosenseatall/2008/01/09/nsview-with-gradient-background/
 
