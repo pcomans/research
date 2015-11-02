@@ -185,46 +185,26 @@ There are 2 ways to trasnform vector:
 3. Add the untransformed path with CGContextAddPath.
 4. Restore the Quartz coordinate system with CGContextRestoreGState.
 
-**CGContextGetPathBoundingBox**  
-Returns a CGRect that corresponds to the bounding box of the current path  
-
-**CGRectNull** 
-If the current path in the context is empty, CGContextGetPathBoundingBox returns the special rectangle CGRectNull
-
-**CGRectEqualToRect**  
-The Quartz utility function **CGRectEqualToRect** allows comparison of two CGRect structures for equality, making it straightforward to determine if the CGRect returned by CGContextGetPathBoundingBox is CGRectNull.
-
-**CGContextIsPathEmpty**  
-Returns a Boolean value indicating whether the current path in the context is empty. An empty path contains no current point or path segments.
-
-**CGContextGetPathCurrentPoint**   
-Returns a CGPoint that corresponds to the current point of the path in the context. The coordinate values of the point are expressed in the user space coordinate system in effect at the time you call CGContextGetPathCurrentPoint. 
-
-**CGPointZero**  
-If the current path in the context is empty, CGContextGetPathCurrentPoint returns the value CGPointZero.
-
-**CGContextGetClipBoundingBox** 
-Returns a CGRect that corresponds to the bounding box of the clipping area. The coordinate values of the returned rectangle are expressed in the user space coordinate system in effect at the time you call CGContextGetClipBoundingBox.
-
-**CGContextReplacePathWithStrokedPath**   
-Replaces the current path with a stroked version of that path, using the parame- ters of the context to determine the new path. The same context parameters that would be used to stroke a path are consulted when creating the stroked version of the path. The new path, if filled, produces the same result as would have been obtained from stroking the original path. One use of this function is to create a clipping path that corresponds to a stroked version of a path. You’d follow a call to CGContextReplacePathWithStrokedPath with a call to CGContextClip.
-The function CGContextPathContainsPoint allows you to perform simple hit detection with Quartz paths. This function takes the fol- lowing parameters:  
+- **CGContextGetPathBoundingBox**  Returns a CGRect that corresponds to the bounding box of the current path  
+- **CGRectNull** If the current path in the context is empty, CGContextGetPathBoundingBox returns the special rectangle CGRectNull
+- **CGRectEqualToRect** The Quartz utility function **CGRectEqualToRect** allows comparison of two CGRect structures for equality, making it straightforward to determine if the CGRect returned by CGContextGetPathBoundingBox is CGRectNull.
+- **CGContextIsPathEmpty** Returns a Boolean value indicating whether the current path in the context is empty. An empty path contains no current point or path segments.
+- **CGContextGetPathCurrentPoint** Returns a CGPoint that corresponds to the current point of the path in the context. The coordinate values of the point are expressed in the user space coordinate system in effect at the time you call CGContextGetPathCurrentPoint. 
+- **CGPointZero** If the current path in the context is empty, CGContextGetPathCurrentPoint returns the value CGPointZero.
+- **CGContextGetClipBoundingBox** Returns a CGRect that corresponds to the bounding box of the clipping area. The coordinate values of the returned rectangle are expressed in the user space coordinate system in effect at the time you call CGContextGetClipBoundingBox.
+- **CGContextReplacePathWithStrokedPath**  Replaces the current path with a stroked version of that path, using the parame- ters of the context to determine the new path. The same context parameters that would be used to stroke a path are consulted when creating the stroked version of the path. The new path, if filled, produces the same result as would have been obtained from stroking the original path. One use of this function is to create a clipping path that corresponds to a stroked version of a path. You’d follow a call to CGContextReplacePathWithStrokedPath with a call to CGContextClip.
 1. context, the CGContextRef whose path you want to examine.  
 2. point, a CGPoint you want to test with the current path.  
 3. mode, the CGPathDrawingMode of the operation you want to hit test. 
-
-**CGContextPathContainsPoint & CGPathContainsPoint**  
-returns true if point is inside the cur- rent path in context. If point is not inside the current path, the function returns false  
-CGPathContainsPoint can be used to determine whether a CGPoint is inside a CGPath object.
+- **CGContextPathContainsPoint** allows you to perform simple hit detection with Quartz paths. This function takes the fol- lowing parameters:  
+- **CGContextPathContainsPoint** returns true if point is inside the cur- rent path in context. If point is not inside the current path, the function returns false  
+- **CGPathContainsPoint** can be used to determine whether a CGPoint is inside a CGPath object.
 
 ## Color
-**CGColorCreateCopyWithAlpha**  
-To make a new CGColor object with the same color space and component color values
+- **CGColorCreateCopyWithAlpha**  To make a new CGColor object with the same color space and component color values
+- **CGContextSetFillColor** &  **CGContextSetStrokeColorWithColor**  Each of these functions simultaneously sets the corresponding color space and color, using the CGColor object passed to it.
 
-**CGContextSetFillColor** &  **CGContextSetStrokeColorWithColor**  
-Each of these functions simul- taneously sets the corresponding color space and color, using the CGColor object passed to it.
-
-Changing colors after the fact  
+Changing colors after the fact:  
 **CGContextSetFillColor**   
 **CGContextSetStrokeColor**  
 **CGContextSetFillColorSpace** or **CGContextSet**- StrokeColorSpace if the current fill or stroke color space is not already the color space you require.
