@@ -60,12 +60,11 @@ Adds a cubic Bézier curve segment to a Quartz path. This function takes the fo
 3. p1x,p1y, the x and y coordinates for the endpoint of the curve.
 
 ## Path Construction Convenience Functions  
-**CGContextAddRect**  
-Adds a closed rectangular subpath to the current path
-**CGContextAddLines**  
-To add a number of connected line segments at once, you can use the function . You supply an array of points and Quartz constructs a new subpath using these points. The first point in the array is the initial point on the subpath. The first line segment is constructed from the initial point to the second point in the array. Each subsequent line segment is constructed from the trailing endpoint of the previous line segment to the next point in the array. The final result is a series of connected line segments. When CGContextAddLines returns, the current point is the last point in the array of points passed to the function. The resulting subpath is open; you must call CGContextClosePath if you want to close it.
-**CGContextAddArc**  
-All angles in Quartz are specified in radians. The zero angle is along the positive x axis in Quartz coordinates and positive angles increase counterclockwise. The convenience function CGContextAddArc adds an arc segment to the current path. The starting point of the arc is defined by the values of centerX, centerY, radius, and startAngle. The ending point of the arc is defined by centerX, cen- terY, radius, and endAngle. The direction of the arc depends on the value of the clockwise parameter passed to the function. After this function returns, the cur- rent point of the current path is the ending point of the arc segment. The result- ing subpath is open; you must call CGContextClosePath if you want to close it.If a current point exists in the path prior to calling CGContextAddArc, Quartz first adds to the path a line segment from the current point to the starting point of the arc, then adds the arc segment. If there is no current point defined in the cur- rent path, this function adds only the arc segment to the path. takes the following parameters:
+- **CGContextAddRect** Adds a closed rectangular subpath to the current path
+- **CGContextAddLines** To add a number of connected line segments at once, you can use the function . You supply an array of points and Quartz constructs a new subpath using these points. The first point in the array is the initial point on the subpath. The first line segment is constructed from the initial point to the second point in the array. Each subsequent line segment is constructed from the trailing endpoint of the previous line segment to the next point in the array. The final result is a series of connected line segments. When CGContextAddLines returns, the current point is the last point in the array of points passed to the function. The resulting subpath is open; you must call CGContextClosePath if you want to close it.
+- **CGContextAddArc** All angles in Quartz are specified in radians. The zero angle is along the positive x axis in Quartz coordinates and positive angles increase counterclockwise. The convenience function CGContextAddArc adds an arc segment to the current path. The starting point of the arc is defined by the values of centerX, centerY, radius, and startAngle. The ending point of the arc is defined by centerX, cen- terY, radius, and endAngle. The direction of the arc depends on the value of the clockwise parameter passed to the function. After this function returns, the cur- rent point of the current path is the ending point of the arc segment. The result- ing subpath is open; you must call CGContextClosePath if you want to close it.If a current point exists in the path prior to calling CGContextAddArc, Quartz first adds to the path a line segment from the current point to the starting point of the arc, then adds the arc segment. If there is no current point defined in the cur- rent path, this function adds only the arc segment to the path. takes the following parameters:
+
+CGContextAddArc takes these arguments:  
 1. **context** the graphics context to add the path to.
 2. **centerX** **centerY** the x and y coordinates for the center of the circle thatdefines the arc.
 3. **radius** the radius of the circle that defines the arc.
@@ -207,7 +206,7 @@ There are 2 ways to trasnform vector:
 Changing colors after the fact:  
 **CGContextSetFillColor**   
 **CGContextSetStrokeColor**  
-**CGContextSetFillColorSpace** or **CGContextSet**- StrokeColorSpace if the current fill or stroke color space is not already the color space you require.
+**CGContextSetFillColorSpace** or **CGContextSet**: StrokeColorSpace if the current fill or stroke color space is not already the color space you require.
 
 
 ## Graphics State Parameters  
