@@ -26,6 +26,10 @@ This research paper should result in a comprehensive Graphics Util lib, so that 
 - CGDataProider and CGDataConsumer
 
 
+# Misc
+**CGContextClosePath** prior to calling CGContextStrokePath to stroke the path, it is closed by calling  
+**Important** Changes to the current transformation matrix (CTM) do not affect the coordinates of path segments already added to the current path.
+
 
 # Context Path Construction Primitives:   
 All paths in Quartz can be constructed using one or more of the following five basic path construction primitive functions, regardless of the complexity of the path.
@@ -225,7 +229,7 @@ Changing colors after the fact:
 - **Character** spacing - An additional spacing that Quartz adds after each text character when drawing text.
 - **Blend mode** - Determines how Quartz composites source drawing to the destination. Available in Tiger and later versions only.- 
 
-Note: If you obtain a context from a framework or another source, you should not assume the context parameters are set to the values you need. You need to set the graphics state parameters to those appropriate for your drawing task.
+**Note:** If you obtain a context from a framework or another source, you should not assume the context parameters are set to the values you need. You need to set the graphics state parameters to those appropriate for your drawing task.
 
 **CGContextSaveGState**  
 makes a copy of the current graphics state in the context and pushes that copy onto the top of the graphics state stack. The exe- cution of CGContextSaveGState does not modify any of the values in the current graphics state.
@@ -285,7 +289,3 @@ One typical use is to draw text upright in a coordinate system that has its y ax
 
 
 
-
-# Misc
-**CGContextClosePath** prior to calling CGContextStrokePath to stroke the path, it is closed by calling  
-**Important** Changes to the current transformation matrix (CTM) do not affect the coordinates of path segments already added to the current path.
