@@ -71,11 +71,11 @@ Adds a closed rectangular subpath to the current path
 To add a number of connected line segments at once, you can use the function . You supply an array of points and Quartz constructs a new subpath using these points. The first point in the array is the initial point on the subpath. The first line segment is constructed from the initial point to the second point in the array. Each subsequent line segment is constructed from the trailing endpoint of the previous line segment to the next point in the array. The final result is a series of connected line segments. When CGContextAddLines returns, the current point is the last point in the array of points passed to the function. The resulting subpath is open; you must call CGContextClosePath if you want to close it.
 **CGContextAddArc**  
 All angles in Quartz are specified in radians. The zero angle is along the positive x axis in Quartz coordinates and positive angles increase counterclockwise. The convenience function CGContextAddArc adds an arc segment to the current path. The starting point of the arc is defined by the values of centerX, centerY, radius, and startAngle. The ending point of the arc is defined by centerX, cen- terY, radius, and endAngle. The direction of the arc depends on the value of the clockwise parameter passed to the function. After this function returns, the cur- rent point of the current path is the ending point of the arc segment. The result- ing subpath is open; you must call CGContextClosePath if you want to close it.If a current point exists in the path prior to calling CGContextAddArc, Quartz first adds to the path a line segment from the current point to the starting point of the arc, then adds the arc segment. If there is no current point defined in the cur- rent path, this function adds only the arc segment to the path. takes the following parameters:
-1. context //the graphics context to add the path to.
-2. centerXcenterY// the x and y coordinates for the center of the circle thatdefines the arc.
-3. radius// the radius of the circle that defines the arc.
-4. startAngle// the starting angle for the arc.
-5. endAngle// the ending angle for the arc.
+1. **context** the graphics context to add the path to.
+2. **centerX** **centerY** the x and y coordinates for the center of the circle thatdefines the arc.
+3. **radius** the radius of the circle that defines the arc.
+4. **startAngle** the starting angle for the arc.
+5. **endAngle** the ending angle for the arc.
 
 **CGContextAddArcToPoint**  
 Provides another way to add an arc seg- ment to a path. The arc segment created by CGContextAddArcToPoint is defined by a radius and two tangent lines. Figure 6.8 shows the geometry involved; the arc segment added by CGContextAddArcToPoint is shown as a solid line. The function CGContextAddArcToPoint takes five parameters—the x and y coordi- nates of a point p1, the x and y coordinates of a second point p2, and the radius of the arc r. The starting point for constructing the segment added to the path is the point p0, the current point prior to calling CGContextAddArcToPoint. The line from the point p0 to the point p1 and the line from the point p1 to p2 are the two lines tangent to the arc. These lines plus the arc radius r define the arc. The starting point for the arc segment is the point p1t; at that point the arc is tangent to the line from p0 to p1. The ending point of the arc is the point p2t— the point where the arc is tangent to the line from p1 to p2. If the point p0 is not the same point as the tangent point p1t, the function CGContextAddArcToPoint first adds a line segment to the current path to connect the initial current point to the starting point of the arc segment, then adds the arc segment to the path.  
@@ -237,27 +237,27 @@ Changing colors after the fact
 
 ## Graphics State Parameters  
 *Param* - *Default value* - *Description*
-- CTM - Context dependent - The current transformation matrix. Determines the mapping of coordinates from user space to device space.
-- Clipping area - Context dependent - The clipping area is the only portion of the drawing canvas into which Quartz renders.
-- Fill color - DeviceGray opaque black- The color space and the component values, plus an alpha value, used by Quartz when performing fill operations and the painting of image masks. 
-- Stroke color - DeviceGray opaque black - The color space and the component values, plus an alpha value, used by Quartz when performing stroking operations.
-- Line width - 1.0 - The thickness, in user space units, that Quartz uses when stroking paths.
-- Line cap - kCGLineCapButt - The style Quartz uses to paint open endpoints on a subpath when stroking.
-- Line join - kCGLineJoinMiter - The style Quartz uses to paint the join of connected path segments when stroking.
-- Miter limit - 10.0 - Determines the angle between connected path segments where Quartz replaces a miter join with a bevel join when str
-- Line dash - A solid line - The dash pattern Quartz uses when stroking paths.
-- Alpha - 1.0 - A global alpha value that applies an additional alpha value to all drawing in the context.
-- Rendering intent - kCGRenderingIntentDefault - The rendering intent applied when painting paths, text, or image masks.
-- Interpolation quality - kCGInterpolationDefault  - The interpolation quality to apply when rendering sampled images.
-- Should anti-alias - true, for those contexts that support anti-aliasing -  A Boolean value that determines whether Quartz anti-aliases when rendering.
-- Shadow - No shadow - Determines the shadow applied when rendering. Panther and later versions only.
-- Pattern phase - CGSizeZero - The offset to the starting point of a pattern.
-- Should smooth fonts - true, for those contexts that support font smoothing - A Boolean value that determines whether Quartz should smooth fonts when drawing text. Jaguar and later versions only.
-- Text drawing mode - kCGTextFill - The painting mode Quartz uses when drawing text.
-- Font - None - The font Quartz uses when drawing text.
-- Font size - The point size Quartz uses when drawing text.
-- Character spacing - An additional spacing that Quartz adds after each text character when drawing text.
-- Blend mode - Determines how Quartz composites source drawing to the destination. Available in Tiger and later versions only.- 
+- **CTM** - Context dependent - The current transformation matrix. Determines the mapping of coordinates from user space to device space.
+- **Clipping area** - Context dependent - The clipping area is the only portion of the drawing canvas into which Quartz renders.
+- **Fill color** - DeviceGray opaque black- The color space and the component values, plus an alpha value, used by Quartz when performing fill operations and the painting of image masks. 
+- **Stroke color** - DeviceGray opaque black - The color space and the component values, plus an alpha value, used by Quartz when performing stroking operations.
+- **Line width** - 1.0 - The thickness, in user space units, that Quartz uses when stroking paths.
+- **Line cap** - kCGLineCapButt - The style Quartz uses to paint open endpoints on a subpath when stroking.
+- **Line join** - kCGLineJoinMiter - The style Quartz uses to paint the join of connected path segments when stroking.
+- **Miter limit** - 10.0 - Determines the angle between connected path segments where Quartz replaces a miter join with a bevel join when str
+- **Line dash** - A solid line - The dash pattern Quartz uses when stroking paths.
+- **Alpha** - 1.0 - A global alpha value that applies an additional alpha value to all drawing in the context.
+- **Rendering intent** - kCGRenderingIntentDefault - The rendering intent applied when painting paths, text, or image masks.
+- **Interpolation quality** - kCGInterpolationDefault  - The interpolation quality to apply when rendering sampled images.
+- **Should anti-alias** - true, for those contexts that support anti-aliasing -  A Boolean value that determines whether Quartz anti-aliases when rendering.
+- **Shadow** - No shadow - Determines the shadow applied when rendering. Panther and later versions only.
+- **Pattern phase** - CGSizeZero - The offset to the starting point of a pattern.
+- **Should smooth fonts** - true, for those contexts that support font smoothing - A Boolean value that determines whether Quartz should smooth fonts when drawing text. Jaguar and later versions only.
+- **Text drawing mode** - kCGTextFill - The painting mode Quartz uses when drawing text.
+- **Font** - None - The font Quartz uses when drawing text.
+- **Font size** - The point size Quartz uses when drawing text.
+- **Character** spacing - An additional spacing that Quartz adds after each text character when drawing text.
+- **Blend mode** - Determines how Quartz composites source drawing to the destination. Available in Tiger and later versions only.- 
 
 Note: If you obtain a context from a framework or another source, you should not assume the context parameters are set to the values you need. You need to set the graphics state parameters to those appropriate for your drawing task.
 
