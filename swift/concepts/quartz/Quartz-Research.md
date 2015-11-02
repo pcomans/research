@@ -512,4 +512,40 @@ void drawNSStringWithAttributes(void) {
 
 Note: Simple example of drawing the same string with similar attributes as that of the previous example but instead uses an NSLayoutManager  
 
-AroutinethatdrawstextusingmethodsprovidedbytheNSLayoutManagerclass
+```objc
+void drawWithNSLayout(void) {
+   static NSLayoutManager *myLayout = nil; static NSTextStorage *textStorage = nil; static NSRange myTextRange;
+   NSPoint p;
+   if(myLayout == nil){
+      NSTextContainer *textContainer; NSMutableDictionary *stringAttributes; NSFont *font;
+      NSColor *redColor;
+      // Initialize the text storage with the string to draw. textStorage = [ [NSTextStorage alloc]
+      initWithString: getTextString()];
+      // Initialize the layout manager to use with the text storage. myLayout = [[NSLayoutManager alloc] init];
+      // Allocate and initialize a text container object.
+      textContainer = [[NSTextContainer alloc] init];
+      // Add the text container to the layout.
+      [myLayout addTextContainer:textContainer];
+      // The layout retains the text container; now release it. [textContainer release];
+      // Add the layout to the text storage.
+      [textStorage addLayoutManager:myLayout];
+      // The text storage retains the layout so this code can release it. [myLayout release];
+      // Set attributes to use when drawing the string.
+      stringAttributes = [NSMutableDictionary dictionaryWithCapacity:2];
+      // Use the font with the PostScript name "Times-Roman" at 40 point. font = [ NSFont fontWithName:@"Times-Roman" size: 40]; [stringAttributes setObject:font forKey:NSFontAttributeName];
+      // Set the text color attribute to an opaque red. redColor = [NSColor colorWithCalibratedRed:0.663
+      green:0 blue:0.031 alpha:1.0]; [stringAttributes setObject:redColor
+        forKey:NSForegroundColorAttributeName];
+      // Create the range of text for the entire length of text
+      // in the textStorage object.
+      myTextRange = NSMakeRange(0, [textStorage length]);
+      // Set the attributes on the entire range of text.
+      [textStorage setAttributes:stringAttributes range:myTextRange];
+   }
+   // Set the point for drawing the layout. p = NSMakePoint(20., 400.);
+   // Draw the text range at the point.
+   [myLayout drawGlyphsForGlyphRange:myTextRange atPoint:p];
+}
+```
+
+
