@@ -433,3 +433,19 @@ void drawQuartzTextWithTextMatrix(CGContextRef context) {
 - **CGContextShowGlyphsWithAdvances** is also available. You pass in the same data, plus an array of advances that specifies the advance to use for each glyph in the array of glyphs. (Advances are specified as an array of CGSize structures, therefore they have an x and y value.) These advances are the absolute advance for each glyph in user space.  
 
 **CAUTION:** As a general rule, Apple recommends the Unicode text drawing APIs that are part of the application frameworks built on top of Quartz. One example of when you might work directly with glyph identifiers is if you perform custom Cocoa text drawing
+
+
+# Cocoa text drawing:
+**NSTextView** & **NSText** classes are intended for working with text documents and the TextEdit application is built on top of these classes. Cocoa has a rich set of classes that make it easy to work with large amounts of text as well as rich text docu- ments (both RTF and RTFD).
+
+drawing individual pieces of text.
+There are three basic ways to draw strings of text programmatically in Cocoa:
+
+**NSString** or **NSAttributedString** classes provide the simplest way of drawing small pieces of text. Prior to Panther, this was the slowest way to draw the same string repeatedly in most cases because Cocoa performed no caching of intermediate data used to draw the string.  
+**NSCell** class provides primitives for displaying (and editing) text. Prior to Panther, using NSCell was more efficient than NSString but less efficient than using NSLayoutManager.  
+**NSLayoutManager** class, together with other supporting classes, is the most efficient and flexible means of drawing strings of text with Cocoa.  
+
+**Note:** Cocoa text drawing does respect the CTM and the context clipping area. This allows you to apply coordinate transformations and clipping to Cocoa text in the same ways you can apply them to any Quartz drawing.  
+**Flipped view:**  isFlipped method that returns YES. Cocoa uses this to determine whether to flip text you draw to a view. You can use the CTM to apply other coordinate trans- formation effects, but the Cocoa text system doesn’t require you to do so in order to get properly oriented text in a flipped view  
+
+
