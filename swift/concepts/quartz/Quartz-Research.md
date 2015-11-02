@@ -419,9 +419,8 @@ void drawQuartzTextWithTextMatrix(CGContextRef context) {
    showFlippedTextAtPoint(context, textPosition.x, textPosition.y, text, textlen); 
    CGContextRestoreGState(context);
 }
-   
-   
 ```
 
 <img width="320" alt="output of the above" src="https://www.dropbox.com/s/je4xa229xjzou0p/Screen%20Shot%202015-11-02%20at%2009.27.24.png?raw=1">
 
+**Note:**  The custom method showFlippedTextAtPoint is one way of drawing upright text with Quartz in a flipped coordinate system. It preserves the existing text matrix across calls to showFlippedTextAtPoint but updates the text position to reflect the text drawing. Note that this code ignores any existing text matrix and estab- lishes a new one. As such, this routine is not appropriate for use when you are also using the text matrix to achieve other effects. If all the text you draw is flipped, it isn’t necessary to use a routine like showFlippedTextAtPoint that sets the text matrix each time you call it. Instead you could simply call CGContext- SetTextMatrix once to set up the text flipping each time your drawing code is called.
