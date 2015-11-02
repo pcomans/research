@@ -279,6 +279,8 @@ Context clipping example: (code example does exist)
 - **CGTextDrawingMode.kCGTextStrokeClip** mode first paints the text as if the drawing mode is kCG- TextStroke; then it intersects the outlines with the current clipping area. The adjustment of the text position is done only after the text is painted and the clip is applied.
 - **CGTextDrawingMode.kCGTextFillStrokeClip** mode first paints the text as if the drawing mode is kCGTextFillStroke; then it intersects the outlines with the current clipping area. The adjustment of the text position is done only after the text is painted and the clip is applied.
 
+<img width="450" alt="example of text clipping" src="https://www.dropbox.com/s/gxnyhzj9jkxbvmb/Screen%20Shot%202015-11-02%20at%2007.37.08.png?raw=1">
+
 **Important:** The text matrix and, therefore, the text position are not part of the Quartz graphics state and are not affected by CGContextSaveGState and CGContextRestoreGState. Because the text matrix is not part of the graphics state, you cannot use CGContextSaveGState and CGContextRestore- GState to save and restore it. If you do need to save and restore the text matrix, you call the function CGContextGetTextMatrix to obtain the current text matrix and later restore to that matrix by calling CGContextSetTextMatrix.
 
 **Text & Flipped views:**  
