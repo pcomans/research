@@ -504,4 +504,6 @@ void drawNSStringWithAttributes(void) {
    [ textString drawWithRect:rect options:NSStringDrawingDisableScreenFontSubstitution attributes:stringAttributes ];
 }
 ```
+<img width="400" alt="output of the above" src="https://www.dropbox.com/s/3t229gkpwmphccw/Screen%20Shot%202015-11-02%20at%2010.25.56.png?raw=1">  
 
+# Using NSLayoutManager
