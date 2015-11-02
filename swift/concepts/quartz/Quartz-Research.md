@@ -23,6 +23,7 @@ This research paper should result in a comprehensive Graphics Util lib, so that 
 - PDF support
 - Using the quartz pattern function
 - Working with Colorspaces
+- CGDataProider and CGDataConsumer
 
 ## Misc
 **CGContextClosePath** 
@@ -289,3 +290,11 @@ pops off (or removes) the topmost graphics state on the graphics state stack and
 Context clipping example: (code example does exist)  
 <img width="370" alt="context clipping example" src="https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-11-01%20at%2010.55.53.png">
 
+## Text
+
+- GContextSetFont sets only the font
+- CGContextSelectFont sets both the font and the font size
+- CGContextSetFontSize sets the font size parameter in the graphics state.
+
+
+**Important:** The text matrix and, therefore, the text position are not part of the Quartz graphics state and are not affected by CGContextSaveGState and CGContextRestoreGState.
