@@ -287,5 +287,13 @@ One typical use is to draw text upright in a coordinate system that has its y ax
 **Note:** To achieve the effect of clipping to all the text characters in a sequence of multiple runs, each containing a different font and/or size, the best approach is to (1) clip to a single run at a time, (2) draw the graphics you want clipped to the multiple run of text, (3) restore to a saved graphics state without the clip, and (4) repeat the process for the next run of characters.
 **Note:** Quartz has no notions of synthetic bold, italic, or outline styles as available in some graphics systems such as QuickDraw. Many fonts themselves have the intrinsic styles corresponding to the bold, italic, and bold-italic styles and you should use the intrinsic font faces to obtain these text styles.
 
+**CGContextSelectFont** Before you can use Quartz functions to draw text using characters, you need to call the function CGContextSelectFont to set the font face, font size, and text encoding. The font selected becomes the new font in the graphics state and the size becomes the new font size. This function takes four parameters::  
+- **context**, the graphics context in which to set the font.
+- **name**, the PostScript name of the font.
+- **size**, the size of the font in text space units.
+- **textEncoding**, a value of type CGTextEncoding. The possible values are kCG- EncodingMacRoman or kCGEncodingFontSpecific.
 
+
+**CGContextShowText** draw the glyphs that correspond to the charac- ter codes in the string either at the current text position 
+**CGContextShowTextAtPoint** or at the point passed to CGContextShowTextAtPoint. The character advances that these routines use are the natural advances of the glyphs (scaled by the font size and text matrix), plus any extra character spacing for each glyph. The extra character spacing is a text space value added to each glyph width.
 
