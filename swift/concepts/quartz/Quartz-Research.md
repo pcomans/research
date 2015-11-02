@@ -558,7 +558,7 @@ If you subclass the NSLayoutManager and add the code example from the chapter ab
 <img width="723" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-11-02%20at%2013.09.30.png">
 
 
-# NSGraphicsContext & CGContext
+# Graphics Context in Cocoa
 
 ```objc
 - (void)drawRect:(NSRect)rect {
@@ -578,3 +578,7 @@ If you subclass the NSLayoutManager and add the code example from the chapter ab
    doAlphaRects(context);
 }
 ```
+**In the example above:** The first line in the drawRect: method sends a currentContext message to the class NSGraphicsContext and stores the result in the nsctx variable. Prior to call- ing the drawRect: method, Cocoa sets the current Cocoa graphics context to that of the view. After obtaining the current Cocoa graphics context, the code sends the graphicsPort message to the NSGraphicsContext stored in nsctx. This returns the Quartz CGContextRef that corresponds to the view.  
+<img width="350" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-11-02%20at%2013.40.17.png">  
+
+
