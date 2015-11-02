@@ -578,6 +578,8 @@ If you subclass the NSLayoutManager and add the code example from the chapter ab
    doAlphaRects(context);
 }
 
+//Paintingwithtransparentrectangles
+
 void doAlphaRects(CGContextRef context) {
    // Part 1
    CGRect ourRect = {{0.0, 0.0}, {130.0, 100.0}}; 
