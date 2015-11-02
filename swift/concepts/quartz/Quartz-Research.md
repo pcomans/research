@@ -296,5 +296,9 @@ Context clipping example: (code example does exist)
 - CGContextSelectFont sets both the font and the font size
 - CGContextSetFontSize sets the font size parameter in the graphics state.
 - CGContextSetTextPosition As a convenience, you can set the text position with the function 
+- CGContextGetTextPosition you can retrieve the current text position with .
 
 **Important:** The text matrix and, therefore, the text position are not part of the Quartz graphics state and are not affected by CGContextSaveGState and CGContextRestoreGState.
+
+**Text & Flipped views:**  
+One typical use is to draw text upright in a coordinate system that has its y axis oriented with positive y values going down the drawing canvas (a “flipped” coordinate system). Using a text matrix that is scaled by -1 in the y coordinate allows you to flip the text you draw without modifying the CTM prior to text drawing. 
