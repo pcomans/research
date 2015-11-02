@@ -200,9 +200,10 @@ There are 2 ways to trasnform vector:
 - **CGContextSetFillColor** &  **CGContextSetStrokeColorWithColor**  Each of these functions simultaneously sets the corresponding color space and color, using the CGColor object passed to it. the latter takes context and CGColor as a param
 
 Changing colors after the fact:  
-**CGContextSetFillColor**   
-**CGContextSetStrokeColor**  
-**CGContextSetFillColorSpace** or **CGContextSet**: StrokeColorSpace if the current fill or stroke color space is not already the color space you require.
+- **CGContextSetFillColor**   
+- **CGContextSetStrokeColor**
+- **CGContextSetStrokeColorWithColor** Takes context and CGColor  
+- **CGContextSetFillColorSpace** or **CGContextSet**: StrokeColorSpace if the current fill or stroke color space is not already the color space you require.
 
 
 ## Graphics State Parameters  
