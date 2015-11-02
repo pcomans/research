@@ -423,4 +423,13 @@ void drawQuartzTextWithTextMatrix(CGContextRef context) {
 
 <img width="320" alt="output of the above" src="https://www.dropbox.com/s/je4xa229xjzou0p/Screen%20Shot%202015-11-02%20at%2009.27.24.png?raw=1">
 
-**Note:**  The custom method showFlippedTextAtPoint is one way of drawing upright text with Quartz in a flipped coordinate system. It preserves the existing text matrix across calls to showFlippedTextAtPoint but updates the text position to reflect the text drawing. Note that this code ignores any existing text matrix and estab- lishes a new one. As such, this routine is not appropriate for use when you are also using the text matrix to achieve other effects. If all the text you draw is flipped, it isn’t necessary to use a routine like showFlippedTextAtPoint that sets the text matrix each time you call it. Instead you could simply call CGContext- SetTextMatrix once to set up the text flipping each time your drawing code is called.
+**Note:**  The custom method showFlippedTextAtPoint is one way of drawing upright text with Quartz in a flipped coordinate system. It preserves the existing text matrix across calls to showFlippedTextAtPoint but updates the text position to reflect the text drawing. Note that this code ignores any existing text matrix and estab- lishes a new one. As such, this routine is not appropriate for use when you are also using the text matrix to achieve other effects. If all the text you draw is flipped, it isn’t necessary to use a routine like showFlippedTextAtPoint that sets the text matrix each time you call it. Instead you could simply call CGContext- SetTextMatrix once to set up the text flipping each time your drawing code is called.  
+
+
+- **CGFontCreateWithPlatformFont** You cre- ate a CGFont object by calling the function passing a pointer to an ATSFontRef  
+- **ATSFontRef** You obtain an ATSFontRef from the Apple Type Services (ATS) framework. ATS provides a number of ways to obtain an ATSFontRef.
+- **CGContextSetFont** Set the CGFont object for the font you want to draw with,  to set the font in the graphics state. Recall that the default font size is zero in a graphics context; a font size of zero produces no text rendering. To set the font size to a nonzero size, you call CGContextSetFont- Size.
+
+
+- **CGContextShowGlyphs and CGContextShowGlyphsAtPoint** draw glyphs from the font you’ve set, passing in an array of glyph identifiers specifying the glyphs to draw. The first glyph in the array of glyphs is drawn at the current text position if you call CGContextShowGlyphs or at the point passed to CGContext- ShowGlyphsAtPoint. The character advances are the natural advances of the glyphs (scaled by the font size and transformed by the text matrix), plus any extra character spacing for each glyph. The extra character spacing graphics state parameter is a text space value that is added to each glyph width in text space.
+
