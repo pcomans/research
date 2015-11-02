@@ -197,7 +197,7 @@ There are 2 ways to trasnform vector:
 
 ## Color
 - **CGColorCreateCopyWithAlpha**  To make a new CGColor object with the same color space and component color values
-- **CGContextSetFillColor** &  **CGContextSetStrokeColorWithColor**  Each of these functions simultaneously sets the corresponding color space and color, using the CGColor object passed to it.
+- **CGContextSetFillColor** &  **CGContextSetStrokeColorWithColor**  Each of these functions simultaneously sets the corresponding color space and color, using the CGColor object passed to it. the latter takes context and CGColor as a param
 
 Changing colors after the fact:  
 **CGContextSetFillColor**   
