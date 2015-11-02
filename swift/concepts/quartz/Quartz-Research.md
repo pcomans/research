@@ -35,16 +35,11 @@ Changes to the current transformation matrix (CTM) do not affect the coordinates
 
 ## Context Path Construction Primitives:   
 All paths in Quartz can be constructed using one or more of the following five basic path construction primitive functions, regardless of the complexity of the path.
-**CGContextMoveToPoint**   
-begins a new subpath in the current path.
-**CGContextAddLineToPoint**   
-adds a straight line segment to the current path.
-**CGContextAddCurveToPoint**   
-adds a cubic Bézier curve segment to the current path.
-**CGContextAddQuadCurveToPoint**   
-adds a quadratic Bézier curve segment to the current path.
-**CGContextClosePath**   
-ends the current path.
+- **CGContextMoveToPoint** begins a new subpath in the current path.
+- **CGContextAddLineToPoint** adds a straight line segment to the current path.
+- **CGContextAddCurveToPoint** adds a cubic Bézier curve segment to the current path.
+- **CGContextAddQuadCurveToPoint** adds a quadratic Bézier curve segment to the current path.
+- **CGContextClosePath** ends the current path.
 
 **Creating paths within the context**:
 1. The first step when constructing a new path, whether constructing it with the path primitive functions or convenience functions, is to discard any existing path with the function **CGContextBeginPath**.
@@ -55,9 +50,9 @@ ends the current path.
 
 **CGContextAddCurveToPoint**  
 Adds a cubic Bézier curve segment to a Quartz path. This function takes the following parameters:
-1. context, the graphics context to add the path to.
-2. cp1x,cp1y, the x and y coordinates for the first control point.
-3. cp2x,cp2y, the x and y coordinates for the second control point. I p1x,p1y, the x and y coordinates for the endpoint of the curve.
+1. **context**, the graphics context to add the path to.
+2. **cp1x**,**cp1y**, the x and y coordinates for the first control point.
+3. **cp2x**,**cp2y**, the x and y coordinates for the second control point. I p1x,p1y, the x and y coordinates for the endpoint of the curve.
 
 **CGContextAddQuadCurveToPoint** adds a quadratic Bézier curve seg- ment to a Quartz path. This function takes the following parameters:
 1. context, the graphics context to add the path to.
