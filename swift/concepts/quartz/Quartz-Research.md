@@ -448,4 +448,60 @@ There are three basic ways to draw strings of text programmatically in Cocoa:
 **Note:** Cocoa text drawing does respect the CTM and the context clipping area. This allows you to apply coordinate transformations and clipping to Cocoa text in the same ways you can apply them to any Quartz drawing.  
 **Flipped view:**  isFlipped method that returns YES. Cocoa uses this to determine whether to flip text you draw to a view. You can use the CTM to apply other coordinate trans- formation effects, but the Cocoa text system doesn’t require you to do so in order to get properly oriented text in a flipped view  
 
+# Using NSString to draw text:  
+
+```objc
+static NSString *getTextString() {
+   static NSString *textString = nil; 
+   if(textString == nil){
+      // These Unicode values are the glyphs: Q, u, a, r, t, z,
+      // eighth-note, floral heart, chess queen, and 2 CJK glyphs. 
+      const unichar chars[] = {0x0051, 0x0075, 0x0061, 0x0072, 0x0074, 0x007A, 0x266A, 0x2766, 0x265B, 0x3042, 0x304E }; textString = [NSString stringWithCharacters:chars
+      length: sizeof(chars)/sizeof(unichar)];
+      [textString retain];
+   }
+   return textString;
+}
+**CodethatusesNSStringmethodstodrawtext:**  
+void drawNSStringWithAttributes(void) {
+   NSString *textString = getTextString(); NSPoint p;
+   NSFont *font;
+   NSColor *redColor;
+   NSMutableDictionary *stringAttributes;
+   p = NSMakePoint(20., 400.);
+   // ***** Text Line 1 *****
+   // Draw the text with the default text attributes. [ textString drawAtPoint:p withAttributes:nil];
+   // ***** Text Line 2 *****
+   // Draw with a specific font and color.
+   // Position the text 50 units below the previous text.
+   p.y -= 50;
+   // Set attributes to use when drawing the string.
+   stringAttributes = [NSMutableDictionary dictionaryWithCapacity:4];
+   // Use the font with the PostScript name "Times-Roman" at 40 point. font = [ NSFont fontWithName:@"Times-Roman" size: 40]; [stringAttributes setObject:font forKey:NSFontAttributeName];
+   // Set the color attribute to an opaque red. 
+   redColor = [NSColor colorWithCalibratedRed:1 green:0 blue:0 alpha:1.0];
+   [stringAttributes setObject:redColor forKey:NSForegroundColorAttributeName];
+   [textString drawAtPoint:p withAttributes:stringAttributes];
+   // ***** Text Line 3 ***** // Draw stroked text.
+   // Position the text 50 units below the previous text. p.y -= 50;
+   // Set the stroke text mode by using a positive stroke value. 
+   [stringAttributes setObject:[NSNumber numberWithFloat:3.0] forKey:NSStrokeWidthAttributeName];
+   
+   [ textString drawAtPoint:p withAttributes:stringAttributes];
+   // ***** Text Line 4 *****
+   // Draw with fill and stroke.
+   // Position the text 50 units below the previous text. p.y -= 50;
+   // Set the fill-stroke text mode by using a negative stroke value. [stringAttributes setObject:
+  [NSNumber numberWithFloat:-3.0] forKey:NSStrokeWidthAttributeName];
+  // Set the stroke color attribute to black. [stringAttributes setObject:
+  [NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:1.0] forKey:NSStrokeColorAttributeName];
+  [textString drawAtPoint:p withAttributes:stringAttributes];
+   // ***** Text Line 5 *****
+   // Draw at the text baseline. NSRect rect;
+   p.y -= 50;
+   rect.origin = p;
+   rect.size = NSMakeSize(0,0);
+   [ textString drawWithRect:rect options:NSStringDrawingDisableScreenFontSubstitution attributes:stringAttributes ];
+}
+```
 
