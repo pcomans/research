@@ -292,22 +292,22 @@ Context clipping example: (code example does exist)
 
 ## Text
 
-- GContextSetFont sets only the font
-- CGContextSelectFont sets both the font and the font size
-- CGContextSetFontSize sets the font size parameter in the graphics state.
-- CGContextSetTextPosition As a convenience, you can set the text position with the function 
-- CGContextGetTextPosition you can retrieve the current text position with .
-- CGContextSetTextMatrix You explicitly set the text matrix in its entirety (including the text position) by using . 
-- CGContextGetTextMatrix You can obtain the current text matrix in the context  
-- CGContextSetTextDrawingMode You set the text drawing mode by calling the function
-- CGTextDrawingMode.kCGTextFill: draws text characters as you expect—it fills the outlines of the paths that make up the glyphs, using the current fill color. (Note that the fill algorithms for painting text characters are significantly different than those for line art graphics. To achieve good results, Quartz uses different render- ing techniques for painting text characters than it does for painting line art.
-- CGTextDrawingMode.kCGTextStroke: mode strokes the outlines of the characters, using the current line width in the graphics state. The glyphs are painted with the current stroke color. The other parameters of the graphics state that affect stroking, such as the line dash, line cap, and line join, also affect the stroking of text.
-- CGTextDrawingMode.kCGTextFillStroke: mode both fills and strokes the text. The effect is that of first filling, then stroking the text. Note that if you want to draw shadowed text  that is both stroked and filled, you may need to use transparency layers to achieve the effect you most likely will want. See “Drawing with Transparency Layers (Pan- ther)” (page 522) for a discussion of transparency layers and shadows.
-- CGTextDrawingMode.kCGTextInvisible: mode performs no painting of the characters, but it updates the text matrix as if it had painted them. This is potentially useful for measuring text before drawing it or positioning pieces of text as if other text were drawn first.
-- CGTextDrawingMode.kCGTextClip : mode intersects the current clipping area with the area described by the interior of the paths making up the text characters. Note that this is an atomic operation; that is, when making a single Quartz drawing call, the interiors of the glyphs being drawn are treated as a single object when clip- ping. Subsequent calls to text drawing functions with the text drawing mode kCGTextClip most likely will produce an empty clipping area unless the addi- tional text drawing is placed so that it intersects the previous clipping area.
-- CGTextDrawingMode.kCGTextFillClip mode first paints the text as if the drawing mode is kCGTextFill; then it intersects the out- lines with the current clipping area. The adjustment of the text position is done only after the text is painted and the clip is applied.
-- CGTextDrawingMode.kCGTextStrokeClip mode first paints the text as if the drawing mode is kCG- TextStroke; then it intersects the outlines with the current clipping area. The adjustment of the text position is done only after the text is painted and the clip is applied.
-- CGTextDrawingMode.kCGTextFillStrokeClip mode first paints the text as if the drawing mode is kCGTextFillStroke; then it intersects the outlines with the current clipping area. The adjustment of the text position is done only after the text is painted and the clip is applied.
+- **GContextSetFont** sets only the font
+- **CGContextSelectFont** sets both the font and the font size
+- **CGContextSetFontSize** sets the font size parameter in the graphics state.
+- **CGContextSetTextPosition** As a convenience, you can set the text position with the function 
+- **CGContextGetTextPosition** you can retrieve the current text position with .
+- **CGContextSetTextMatrix** You explicitly set the text matrix in its entirety (including the text position) by using . 
+- **CGContextGetTextMatrix** You can obtain the current text matrix in the context  
+- **CGContextSetTextDrawingMode** You set the text drawing mode by calling the function
+- **CGTextDrawingMode.kCGTextFill**: draws text characters as you expect—it fills the outlines of the paths that make up the glyphs, using the current fill color. (Note that the fill algorithms for painting text characters are significantly different than those for line art graphics. To achieve good results, Quartz uses different render- ing techniques for painting text characters than it does for painting line art.
+- **CGTextDrawingMode.kCGTextStroke**: mode strokes the outlines of the characters, using the current line width in the graphics state. The glyphs are painted with the current stroke color. The other parameters of the graphics state that affect stroking, such as the line dash, line cap, and line join, also affect the stroking of text.
+- **CGTextDrawingMode.kCGTextFillStroke**: mode both fills and strokes the text. The effect is that of first filling, then stroking the text. Note that if you want to draw shadowed text  that is both stroked and filled, you may need to use transparency layers to achieve the effect you most likely will want. See “Drawing with Transparency Layers (Pan- ther)” (page 522) for a discussion of transparency layers and shadows.
+- **CGTextDrawingMode.kCGTextInvisible**: mode performs no painting of the characters, but it updates the text matrix as if it had painted them. This is potentially useful for measuring text before drawing it or positioning pieces of text as if other text were drawn first.
+- **CGTextDrawingMode.kCGTextClip** : mode intersects the current clipping area with the area described by the interior of the paths making up the text characters. Note that this is an atomic operation; that is, when making a single Quartz drawing call, the interiors of the glyphs being drawn are treated as a single object when clip- ping. Subsequent calls to text drawing functions with the text drawing mode kCGTextClip most likely will produce an empty clipping area unless the addi- tional text drawing is placed so that it intersects the previous clipping area.
+- **CGTextDrawingMode.kCGTextFillClip** mode first paints the text as if the drawing mode is kCGTextFill; then it intersects the out- lines with the current clipping area. The adjustment of the text position is done only after the text is painted and the clip is applied.
+- **CGTextDrawingMode.kCGTextStrokeClip** mode first paints the text as if the drawing mode is kCG- TextStroke; then it intersects the outlines with the current clipping area. The adjustment of the text position is done only after the text is painted and the clip is applied.
+- **CGTextDrawingMode.kCGTextFillStrokeClip** mode first paints the text as if the drawing mode is kCGTextFillStroke; then it intersects the outlines with the current clipping area. The adjustment of the text position is done only after the text is painted and the clip is applied.
 
 **Important:** The text matrix and, therefore, the text position are not part of the Quartz graphics state and are not affected by CGContextSaveGState and CGContextRestoreGState. Because the text matrix is not part of the graphics state, you cannot use CGContextSaveGState and CGContextRestore- GState to save and restore it. If you do need to save and restore the text matrix, you call the function CGContextGetTextMatrix to obtain the current text matrix and later restore to that matrix by calling CGContextSetTextMatrix.
 
