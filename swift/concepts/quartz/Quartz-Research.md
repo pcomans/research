@@ -405,4 +405,23 @@ void drawQuartzTextWithTextMatrix(CGContextRef context) {
    // Reset the text matrix to the identity matrix. 
    CGContextSetTextMatrix(context, CGAffineTransformIdentity);
    
+   // Now draw text in a flipped coordinate system. 
+   CGContextSaveGState(context);
+   // Scale the coordinate system to mimic text drawing into 
+   // a flipped coordinate system. CGContextConcatCTM(context,
+   CGAffineTransformMake(1, 0, 0, -1, 0, 600)); 
+   // This text will be flipped along with the CTM.
+   CGContextShowTextAtPoint(context, 10, 10, text, textlen); 
+   // Obtain the user space coordinates of the current
+   // text position.
+   textPosition = CGContextGetTextPosition(context);
+   // Draw the text at that point but flipped in y. 
+   showFlippedTextAtPoint(context, textPosition.x, textPosition.y, text, textlen); 
+   CGContextRestoreGState(context);
+}
+   
+   
 ```
+
+<img width="320" alt="output of the above" src="https://www.dropbox.com/s/je4xa229xjzou0p/Screen%20Shot%202015-11-02%20at%2009.27.24.png?raw=1">
+
