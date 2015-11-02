@@ -338,4 +338,71 @@ void drawQuartzRomanText(CGContextRef context) {
 #Text Matrix 
 The text matrix is a matrix that you can use with Quartz text drawing to apply additional transformations in addition to those of the CTM. The text matrix can be used to apply scaling or other coordinate transfor- mations to text, in addition to those that the CTM applies to all graphics.    
 
-demonstrates how the text matrix affects Quartz text drawing by using the text matrix to apply text scaling, flipping, and positioning of text. The code consists of the routine drawQuartzTextWithTextMatrix and the supporting routine showFlippedTextAtPoint. Executing the code produces the output shown:  
+This demonstrates how the text matrix affects Quartz text drawing by using the text matrix to apply text scaling, flipping, and positioning of text. The code consists of the routine drawQuartzTextWithTextMatrix and the supporting routine showFlippedTextAtPoint. Executing the code produces the output shown:  
+```obj
+void showFlippedTextAtPoint(CGContextRef c, float x, float y, const char *text, const size_t textLen) {
+   CGAffineTransform s;
+   CGAffineTransform t = {1., 0., 0., -1., 0., 0.};
+   CGPoint p;
+   // Get the existing text matrix.
+   s = CGContextGetTextMatrix(c);
+   // Set the text matrix to the one that flips in y. CGContextSetTextMatrix(c, t);
+   // Draw the text at the point. CGContextShowTextAtPoint(c, x, y, text, textLen);
+   // Get the updated text position.
+   p = CGContextGetTextPosition(c);
+   // Update the saved text matrix to reflect the updated
+   // text position.
+   s.tx = p.x ; s.ty = p.y;
+   // Reset to the text matrix in effect when this
+   // routine was called but with the text position updated. CGContextSetTextMatrix(c, s);
+}
+
+
+void drawQuartzTextWithTextMatrix(CGContextRef context) {
+   float fontSize = 60, extraLeading = 10; static const char *text = "Quartz "; size_t textlen = strlen(text);
+   CGPoint textPosition;
+   CGAffineTransform t;
+   // Set the initial text matrix to the identity transform. 
+   CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+   // Use the Times-Roman font at 60 points. 
+   CGContextSelectFont(context, "Times-Roman", fontSize,kCGEncodingMacRoman); 
+   // ***** Text Line 1 *****
+   // Draw the text at (10, 600). CGContextShowTextAtPoint(context, 10, 600, text, textlen);
+   
+   // Get the current text position. The text pen is at the trailing 
+   // point from the text just drawn.
+   textPosition = CGContextGetTextPosition(context);
+
+   
+   // Set the text matrix to one that flips text in y and sets 
+   // the text position to the user space coordinate (0,0).
+   t = CGAffineTransformMake(1, 0, 0, -1, 0, 0); 
+   CGContextSetTextMatrix(context, t);
+   // Set the text position to the point where the previous text ended. 
+   CGContextSetTextPosition(context, textPosition.x, textPosition.y);
+   // Draw the text at the current text position. It will be drawn 
+   // flipped in y, relative to the text drawn previously. 
+   CGContextShowText(context, text, textlen);
+   // ***** Text Line 2 *****
+   // Translate down for the next piece of text. 
+   CGContextTranslateCTM(context, 0, -(3*fontSize + extraLeading));
+   CGContextSaveGState(context);
+   // Make a transform that scales by a factor of 1 in x and 3 in y. 
+   t = CGAffineTransformMake(1, 0, 0, 3, 0, 0); 
+   CGContextSetTextMatrix(context, t);
+   // This text is scaled relative to the previous text
+   // because of the text matrix scaling. 
+   CGContextShowTextAtPoint(context, 10, 600, text, textlen);
+   // Restore the graphics state to what it was at the time 
+   // of the last CGContextSaveGState. 
+   CGContextRestoreGState(context);
+   // The text matrix isn't affected by CGContextSaveGState and 
+   // CGContextRestoreGState.
+   CGContextShowText(context, text, textlen);
+   // ***** Text Line 3 *****
+   // Translate down for the next piece of text. 
+   CGContextTranslateCTM(context, 0, -(fontSize + extraLeading));
+   // Reset the text matrix to the identity matrix. 
+   CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+   
+```
