@@ -22,7 +22,7 @@ This research paper should result in a comprehensive Graphics Util lib, so that 
 - BlendModes
 - PDF support
 - Using the quartz pattern function
-
+- Working with Colorspaces
 
 ## Misc
 **CGContextClosePath** 
@@ -286,6 +286,6 @@ pops off (or removes) the topmost graphics state on the graphics state stack and
 - CGContextSetLineDash
 - CGContextStrokePath
 
-Context clipping example:(code example does exist)  
+Context clipping example: (code example does exist)  
 <img width="370" alt="context clipping example" src="https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-11-01%20at%2010.55.53.png">
 
