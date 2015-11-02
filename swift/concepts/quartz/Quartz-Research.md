@@ -332,3 +332,6 @@ void drawQuartzRomanText(CGContextRef context) {
   } 
 }
 ```
+
+<img width="270" alt="output from the above code" src="https://www.dropbox.com/s/7tnb1vokx0ecsp0/Screen%20Shot%202015-11-02%20at%2009.02.00.png?raw=1">
+
