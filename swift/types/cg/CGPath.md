@@ -59,7 +59,7 @@ CGPathGetBoundingBox(self.path);
 }
 ```
 
-**Draw a rectangle:**
+**Draw a rectangle: IOS**
 ```objc
 - (void)drawRect:(CGRect)rect{ 
    /* Create the path first. Just the path handle. */ 
@@ -276,22 +276,6 @@ CGPathAddRect(path,&transform, rectangle);
 
 
 
-```objc
-
-```
-```objc
-
-```
-```objc
-
-```
-```objc
-
-```
-
-
-
-
 **drawing an ellipse or circle:**
 ```objc
 override func drawRect(rect: CGRect){
@@ -327,8 +311,7 @@ A cubic Bézier curve may be drawn by moving to a start point and then passing t
 override func drawRect(rect: CGRect) {
     let context = UIGraphicsGetCurrentContext()
     CGContextSetLineWidth(context, 4.0)
-    CGContextSetStrokeColorWithColor(context,
-            UIColor.blueColor().CGColor)
+    CGContextSetStrokeColorWithColor(context,UIColor.blueColor().CGColor)
     CGContextMoveToPoint(context, 10, 10)
     CGContextAddCurveToPoint(context, 0, 50, 300, 250, 300, 400)
     CGContextStrokePath(context)
@@ -340,8 +323,7 @@ A quadratic Bézier curve is drawn using the CGContextAddQuadCurveToPoint() func
 override func drawRect(rect: CGRect){
     let context = UIGraphicsGetCurrentContext()
     CGContextSetLineWidth(context, 4.0)
-    CGContextSetStrokeColorWithColor(context,
-        UIColor.blueColor().CGColor)
+    CGContextSetStrokeColorWithColor(context,UIColor.blueColor().CGColor)
     CGContextMoveToPoint(context, 10, 200)
     CGContextAddQuadCurveToPoint(context, 150, 10, 300, 200)
     CGContextStrokePath(context)
