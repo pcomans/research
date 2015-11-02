@@ -548,4 +548,4 @@ void drawWithNSLayout(void) {
 }
 ```
 
-
+<img width="480" alt="example output of the above" src="https://www.dropbox.com/s/ljf3innxdjwmmbx/Screen%20Shot%202015-11-02%20at%2010.38.43.png?raw=1">
