@@ -580,14 +580,17 @@ If you subclass the NSLayoutManager and add the code example from the chapter ab
 
 void doAlphaRects(CGContextRef context) {
    // Part 1
-   CGRect ourRect = {{0.0, 0.0}, {130.0, 100.0}}; int i, numRects = 6;
+   CGRect ourRect = {{0.0, 0.0}, {130.0, 100.0}}; 
+   int i, numRects = 6;
    float rotateAngle = 2*M_PI/numRects;
    float tint, tintAdjust = 1.0/numRects;
    //  Part 2 
    CGContextTranslateCTM (context, 2*ourRect.size.width, 2*ourRect.size.height);
    //  Part 3 
    for(i = 0, tint = 1.0; i < numRects ; i++, tint -= tintAdjust){
-      CGContextSetRGBFillColor (context, tint, 0.0, 0.0, tint); CGContextFillRect(context, ourRect); CGContextRotateCTM(context, rotateAngle); // cumulative
+      CGContextSetRGBFillColor (context, tint, 0.0, 0.0, tint); 
+      CGContextFillRect(context, ourRect); 
+      CGContextRotateCTM(context, rotateAngle); // cumulative
    } 
 }
 ```
