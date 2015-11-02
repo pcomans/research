@@ -462,6 +462,7 @@ static NSString *getTextString() {
    }
    return textString;
 }
+
 **CodethatusesNSStringmethodstodrawtext:** 
  
 void drawNSStringWithAttributes(void) {
@@ -510,7 +511,7 @@ void drawNSStringWithAttributes(void) {
 
 # Using NSLayoutManager
 
-Note: Simple example of drawing the same string with similar attributes as that of the previous example but instead uses an NSLayoutManager  
+**Note:** Simple example of drawing the same string with similar attributes as that of the previous example but instead uses an NSLayoutManager  
 
 ```objc
 void drawWithNSLayout(void) {
@@ -556,3 +557,24 @@ If you subclass the NSLayoutManager and add the code example from the chapter ab
 
 <img width="723" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-11-02%20at%2013.09.30.png">
 
+
+# NSGraphicsContext & CGContext
+
+```objc
+- (void)drawRect:(NSRect)rect {
+   NSGraphicsContext *nsctx = [NSGraphicsContext currentContext]; 
+   CGContextRef context = (CGContextRef)[nsctx graphicsPort];
+   CGContextSetLineWidth(context, 5.0);
+   // Draw the coordinate axes. 
+   CGContextBeginPath(context);
+   // First draw the x axis. 
+   CGContextMoveToPoint(context, -2000., 0.0); 
+   CGContextAddLineToPoint(context, 2000., 0.0); 
+   CGContextDrawPath(context, kCGPathStroke);
+   // Next draw the y axis. 
+   CGContextMoveToPoint(context, 0.0, -2000.0); 
+   CGContextAddLineToPoint(context, 0.0, 2000.0); 
+   CGContextDrawPath(context, kCGPathStroke);
+   doAlphaRects(context);
+}
+```
