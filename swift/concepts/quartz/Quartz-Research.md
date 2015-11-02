@@ -550,3 +550,9 @@ void drawWithNSLayout(void) {
 
 <img width="480" alt="example output of the above" src="https://www.dropbox.com/s/ljf3innxdjwmmbx/Screen%20Shot%202015-11-02%20at%2010.38.43.png?raw=1">
 
+**Note:** The NSLayoutManager class works best when drawing into a flipped view, that is, a view where y coordinate values increase as you move down the drawing can- vas.
+
+If you subclass the NSLayoutManager and add the code example from the chapter about Cocoa text drawing you are able to produce this:  
+
+<img width="723" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-11-02%20at%2013.09.30.png">
+
