@@ -297,3 +297,36 @@ One typical use is to draw text upright in a coordinate system that has its y ax
 **CGContextShowText** draw the glyphs that correspond to the charac- ter codes in the string either at the current text position 
 **CGContextShowTextAtPoint** or at the point passed to CGContextShowTextAtPoint. The character advances that these routines use are the natural advances of the glyphs (scaled by the font size and text matrix), plus any extra character spacing for each glyph. The extra character spacing is a text space value added to each glyph width.
 
+AroutinethatdrawsRomantextusingCGContextShowTextandCGContextShowTextAtPoint:
+
+```objc
+void drawQuartzRomanText(CGContextRef context) {
+  int i;
+  static const char *text = "Quartz"; 
+  size_t textlen = strlen(text); 
+  float fontSize = 60;
+  float opaqueBlack[] = { 0., 0., 0., 1. }; 
+  float opaqueRed[] = { 0.663, 0., 0.031, 1. };
+  // Set the fill color space. This sets the
+  // fill painting color to opaque black. 
+  CGContextSetFillColorSpace(context, getTheRGBColorSpace());
+  // Set the text matrix this code requires. 
+  CGContextSetTextMatrix(context, CGAffineTransformIdentity);
+  // Choose the font with the PostScript name "Times-Roman", at 
+  // fontSize points, with the MacRoman encoding. 
+  CGContextSelectFont(context, "Times-Roman", fontSize,kCGEncodingMacRoman);
+  // The default text drawing mode is fill. Draw the text at (70, 400). 
+  CGContextShowTextAtPoint(context, 70, 400, text, textlen);
+  // Set the fill color to red. 
+  CGContextSetFillColor(context, opaqueRed);
+  // Draw the next piece of text where the previous one left off.
+  CGContextShowText(context, text, textlen);
+  for(i = 0 ; i < 3 ; i++){
+    // Get the current text pen position.
+    CGPoint p = CGContextGetTextPosition(context); // Translate to the current text pen position. CGContextTranslateCTM(context, p.x, p.y);
+    // Rotate clockwise by 90 degrees for the next
+    // piece of text.
+    CGContextRotateCTM(context, DEGREES_TO_RADIANS(-90)); // Draw the next piece of text at the origin in black. CGContextSetFillColor(context, opaqueBlack); CGContextShowTextAtPoint(context, 0, 0, text, textlen); // Draw the next piece of text where the previous piece // left off and paint it with red. CGContextSetFillColor(context, opaqueRed); CGContextShowText(context, text, textlen);
+  } 
+}
+```
