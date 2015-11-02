@@ -462,16 +462,17 @@ static NSString *getTextString() {
    }
    return textString;
 }
-**CodethatusesNSStringmethodstodrawtext:**  
+**CodethatusesNSStringmethodstodrawtext:** 
+ 
 void drawNSStringWithAttributes(void) {
    NSString *textString = getTextString(); NSPoint p;
    NSFont *font;
    NSColor *redColor;
    NSMutableDictionary *stringAttributes;
    p = NSMakePoint(20., 400.);
-   // ***** Text Line 1 *****
+   // Text Line 1 
    // Draw the text with the default text attributes. [ textString drawAtPoint:p withAttributes:nil];
-   // ***** Text Line 2 *****
+   //  Text Line 2 
    // Draw with a specific font and color.
    // Position the text 50 units below the previous text.
    p.y -= 50;
@@ -482,13 +483,13 @@ void drawNSStringWithAttributes(void) {
    redColor = [NSColor colorWithCalibratedRed:1 green:0 blue:0 alpha:1.0];
    [stringAttributes setObject:redColor forKey:NSForegroundColorAttributeName];
    [textString drawAtPoint:p withAttributes:stringAttributes];
-   // ***** Text Line 3 ***** // Draw stroked text.
+   //  Text Line 3  // Draw stroked text.
    // Position the text 50 units below the previous text. p.y -= 50;
    // Set the stroke text mode by using a positive stroke value. 
    [stringAttributes setObject:[NSNumber numberWithFloat:3.0] forKey:NSStrokeWidthAttributeName];
    
    [ textString drawAtPoint:p withAttributes:stringAttributes];
-   // ***** Text Line 4 *****
+   //  Text Line 4 
    // Draw with fill and stroke.
    // Position the text 50 units below the previous text. p.y -= 50;
    // Set the fill-stroke text mode by using a negative stroke value. [stringAttributes setObject:
@@ -496,14 +497,19 @@ void drawNSStringWithAttributes(void) {
   // Set the stroke color attribute to black. [stringAttributes setObject:
   [NSColor colorWithCalibratedRed:0 green:0 blue:0 alpha:1.0] forKey:NSStrokeColorAttributeName];
   [textString drawAtPoint:p withAttributes:stringAttributes];
-   // ***** Text Line 5 *****
+   // Text Line 5 
    // Draw at the text baseline. NSRect rect;
    p.y -= 50;
    rect.origin = p;
    rect.size = NSMakeSize(0,0);
-   [ textString drawWithRect:rect options:NSStringDrawingDisableScreenFontSubstitution attributes:stringAttributes ];
+   [textString drawWithRect:rect options:NSStringDrawingDisableScreenFontSubstitution attributes:stringAttributes];
 }
 ```
+
 <img width="400" alt="output of the above" src="https://www.dropbox.com/s/3t229gkpwmphccw/Screen%20Shot%202015-11-02%20at%2010.25.56.png?raw=1">  
 
 # Using NSLayoutManager
+
+Note: Simple example of drawing the same string with similar attributes as that of the previous example but instead uses an NSLayoutManager  
+
+AroutinethatdrawstextusingmethodsprovidedbytheNSLayoutManagerclass
