@@ -295,6 +295,6 @@ Context clipping example: (code example does exist)
 - GContextSetFont sets only the font
 - CGContextSelectFont sets both the font and the font size
 - CGContextSetFontSize sets the font size parameter in the graphics state.
-
+- CGContextSetTextPosition As a convenience, you can set the text position with the function 
 
 **Important:** The text matrix and, therefore, the text position are not part of the Quartz graphics state and are not affected by CGContextSaveGState and CGContextRestoreGState.
