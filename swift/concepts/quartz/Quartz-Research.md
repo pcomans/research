@@ -4,11 +4,6 @@ Todos:
 - [ ] Add more imagery
 - [ ] Read Saving and Restoring a Coordinate System page  01
 
-# Index
-- Context Path Construction Primitives:
-- Context Path Construction Convenience Functions
-- Stroking paths
-
 **Goals of this research paper:**     
 This research paper should result in a comprehensive Graphics Util lib, so that you can work efficiently with quartz
 
