@@ -25,12 +25,6 @@ This research paper should result in a comprehensive Graphics Util lib, so that 
 - Working with Colorspaces
 - CGDataProider and CGDataConsumer
 
-# Misc
-**CGContextClosePath** 
-prior to calling CGContextStrokePath to stroke the path, it is closed by calling
-
-**Important**
-Changes to the current transformation matrix (CTM) do not affect the coordinates of path segments already added to the current path.
 
 
 # Context Path Construction Primitives:   
@@ -48,16 +42,15 @@ All paths in Quartz can be constructed using one or more of the following five b
 4. **CGContextAddLineToPoint** adds a straight-line segment from the current point to a new point in user space
 
 
-**CGContextAddCurveToPoint**  
-Adds a cubic Bézier curve segment to a Quartz path. This function takes the following parameters:
+**CGContextAddCurveToPoint** Adds a cubic Bézier curve segment to a Quartz path. This function takes the following parameters:
 1. **context**, the graphics context to add the path to.
 2. **cp1x**,**cp1y**, the x and y coordinates for the first control point.
 3. **cp2x**,**cp2y**, the x and y coordinates for the second control point. I p1x,p1y, the x and y coordinates for the endpoint of the curve.
 
 **CGContextAddQuadCurveToPoint** adds a quadratic Bézier curve seg- ment to a Quartz path. This function takes the following parameters:
-1. context, the graphics context to add the path to.
-2. cpx,cpy, the x and y coordinates for the control point.
-3. p1x,p1y, the x and y coordinates for the endpoint of the curve.
+1. **context**, the graphics context to add the path to.
+2. **cpx**,**cpy**, the x and y coordinates for the control point.
+3. **p1x**,**p1y**, the x and y coordinates for the endpoint of the curve.
 
 # Path Construction Convenience Functions  
 - **CGContextAddRect** Adds a closed rectangular subpath to the current path
@@ -289,3 +282,10 @@ One typical use is to draw text upright in a coordinate system that has its y ax
 
 **Note:** To achieve the effect of clipping to all the text characters in a sequence of multiple runs, each containing a different font and/or size, the best approach is to (1) clip to a single run at a time, (2) draw the graphics you want clipped to the multiple run of text, (3) restore to a saved graphics state without the clip, and (4) repeat the process for the next run of characters.
 **Note:** Quartz has no notions of synthetic bold, italic, or outline styles as available in some graphics systems such as QuickDraw. Many fonts themselves have the intrinsic styles corresponding to the bold, italic, and bold-italic styles and you should use the intrinsic font faces to obtain these text styles.
+
+
+
+
+# Misc
+**CGContextClosePath** prior to calling CGContextStrokePath to stroke the path, it is closed by calling  
+**Important** Changes to the current transformation matrix (CTM) do not affect the coordinates of path segments already added to the current path.
