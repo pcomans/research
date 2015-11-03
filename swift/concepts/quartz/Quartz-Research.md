@@ -73,6 +73,18 @@ Provides another way to add an arc seg- ment to a path. The arc segment created 
 <img width="320" alt="example" src="https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-10-31%20at%2016.07.50.png">  
 <img width="320" alt="CGContextAddArcToPoint example" src="https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-10-31%20at%2015.54.35.png">
 
+# Path construction:
+
+- **CGPathCreateMutable**, which replacesCGContextBeginPath
+- **CGPathMoveToPoint**, which replaces CGContextMoveToPoint
+- **CGPathAddLineToPoint**, which replaces CGContextAddLineToPoint
+- **CGPathAddCurveToPoint**, which replaces CGContextAddCurveToPoint
+- **CGPathAddEllipseInRect**, which replaces CGContextAddEllipseInRect
+- **CGPathAddArc**, which replaces CGContextAddArc
+- **CGPathAddRect**, which replaces CGContextAddRect
+- **CGPathCloseSubpath**, which replaces CGContextClosePath
+
+
 # Stroking paths
 **CGContextStrokePath** & **CGContextDrawPath** with the painting mode kCGPathStroke This usage of these two functions is identical, so use the one that suits your taste. Stroking a path can be combined with filling of that path by using the function CGContextDraw- Path with the painting modes kCGPathFillStroke or kCGPathEOFillStroke. These painting modes first fill and then stroke the path.
 
