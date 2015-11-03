@@ -180,7 +180,16 @@ There are 2 ways to trasnform vector:
 - **CGPointApplyAffineTransform** You operate on a CGPoint structure by calling the function CGPointApplyAffineTransform.
 - **CGSizeApplyAffineTransform** You can operate on a CGRect structure by calling the function CGRectApplyAffineTransform. This function returns the smallest rectangle that contains the transformed corner points of the rectangle passed to it. If the affine transform that operates on the rectangle performs only scaling and translation operations, the returned rectangle coincides with the rectangle constructed from the four transformed corners.
 
-
+**Concatenating transformations:** (and applying it to a CGPath instance)
+```objc
+CGAffineTransform affineTransform = CGAffineTransformIdentity; affineTransform = CGAffineTransformConcat(affineTransform,
+CGAffineTransformMakeTranslation(-100, -100)); 
+affineTransform = CGAffineTransformConcat(affineTransform,CGAffineTransformMakeRotation(pi / 6)); 
+affineTransform = CGAffineTransformConcat(
+affineTransform, CGAffineTransformMakeTranslation(100, 100));
+CGPathRef transformedPath = CopyPathWithTransformation( umbrellaPath, affineTransform);
+```
+**Transforming the context:**
 ```swift
 // Create a new transform consisting of a 45-degree rotation
 let theTransform:CGAffineTransform  = CGAffineTransformMakeRotation(M_PI/4);//45deg
