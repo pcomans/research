@@ -160,6 +160,16 @@ Quartz offers two convenience functions that clip to a rectangular area. The fun
 
 **Note:** These parameters closely parallel the parameters to the function CGContextAdd- Arc, which adds an arc path segment to the current path in the context. Instead of passing the context as the first parameter, you pass the mutable CGPath
 
+## Transforming
+There are 2 ways to trasnform vector:  
+**A.** is to transform the path object it self or  
+**B.** Transform the entire context like this:  
+1. Save the Quartz coordinate system with CGContextSaveGState.
+2. Apply the affine transform to the context using CGContextConcatCTM.
+3. Add the untransformed path with CGContextAddPath.
+4. Restore the Quartz coordinate system with CGContextRestoreGState.
+
+
 ```swift
 // Create a new transform consisting of a 45-degree rotation
 let theTransform:CGAffineTransform  = CGAffineTransformMakeRotation(M_PI/4);//45deg
@@ -171,14 +181,6 @@ CGContextTranslateCTM(context, 100., 100.);
 CGPathRelease(path);
 ```
 
-## Transforming
-There are 2 ways to trasnform vector:  
-**A.** is to transform the path object it self or  
-**B.** Transform the entire context like this:  
-1. Save the Quartz coordinate system with CGContextSaveGState.
-2. Apply the affine transform to the context using CGContextConcatCTM.
-3. Add the untransformed path with CGContextAddPath.
-4. Restore the Quartz coordinate system with CGContextRestoreGState.
 
 - **CGContextGetPathBoundingBox**  Returns a CGRect that corresponds to the bounding box of the current path  
 - **CGRectNull** If the current path in the context is empty, CGContextGetPathBoundingBox returns the special rectangle CGRectNull
