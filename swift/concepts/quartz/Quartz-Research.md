@@ -267,7 +267,7 @@ Changing colors after the fact:
 
 **Note:** If you obtain a context from a framework or another source, you should not assume the context parameters are set to the values you need. You need to set the graphics state parameters to those appropriate for your drawing task.
 
-**Parameters that affect how Quartz strokes:**  
+## Setting CGContext strokes:  
 - **CGContextSetLineWidth** - Line width
 - **CGContextSetLineJoin** - Line join
 - **CGContextSetLineCap** - Line cap
