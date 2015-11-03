@@ -177,6 +177,10 @@ There are 2 ways to trasnform vector:
 - **CGAffineTransformScale**: To apply a scaling operation to an existing affine transform.
 - **CGAffineTransformInvert**: Inversion is generally used to provide reverse transformation of points within transformed objects. Inversion can be useful when you need to recover a value that has been transformed by a matrix: Invert the matrix, and multiply the value by the inverted matrix, and the result is the original value. You usually don’t need to invert transforms because you can reverse the effects of transforming the CTM by saving and restoring the graphics state.
 - **CGAffineTransformMake**: but unlike the other functions that make new affine transforms, this one requires you to supply matrix entries. To effectively use this function, you need to have an understanding of matrix math
+- **CGPointApplyAffineTransform** You operate on a CGPoint structure by calling the function CGPointApplyAffineTransform.
+- **CGSizeApplyAffineTransform** You can operate on a CGRect structure by calling the function CGRectApplyAffineTransform. This function returns the smallest rectangle that contains the transformed corner points of the rectangle passed to it. If the affine transform that operates on the rectangle performs only scaling and translation operations, the returned rectangle coincides with the rectangle constructed from the four transformed corners.
+
+
 ```swift
 // Create a new transform consisting of a 45-degree rotation
 let theTransform:CGAffineTransform  = CGAffineTransformMakeRotation(M_PI/4);//45deg
