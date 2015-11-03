@@ -84,6 +84,8 @@ Provides another way to add an arc seg- ment to a path. The arc segment created 
 - **CGPathAddRect**, which replaces CGContextAddRect
 - **CGPathCloseSubpath**, which replaces CGContextClosePath
 
+**IMPORTANT:** You can replace the path in a graphicscontext with the stroked version of the path by calling the function CGContextReplacePathWithStrokedPath.
+
 
 # Stroking paths
 **CGContextStrokePath** & **CGContextDrawPath** with the painting mode kCGPathStroke This usage of these two functions is identical, so use the one that suits your taste. Stroking a path can be combined with filling of that path by using the function CGContextDraw- Path with the painting modes kCGPathFillStroke or kCGPathEOFillStroke. These painting modes first fill and then stroke the path.
