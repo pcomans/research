@@ -84,7 +84,6 @@ Provides another way to add an arc seg- ment to a path. The arc segment created 
 - **CGPathAddRect**, which replaces CGContextAddRect
 - **CGPathCloseSubpath**, which replaces CGContextClosePath
 
-**IMPORTANT:** You can replace the path in a graphicscontext with the stroked version of the path by calling the function CGContextReplacePathWithStrokedPath.
 
 
 # Stroking paths
