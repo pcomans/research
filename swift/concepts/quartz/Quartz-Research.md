@@ -246,7 +246,7 @@ pops off (or removes) the topmost graphics state on the graphics state stack and
 **IMPORTANT:** Every call you make to CGContextSaveGState must be balanced with a subsequent call to CGContextRestoreGState. Failing to do so produces 
 
 **Functions that modify the GState:**  
-- CGContextSetLineWidth  
+- CGContextSetLineWidth(context:CGContext?,lindeWidth:CGFloat)  
 - CGContextScaleCTM
 - CGContextTranslateCTM
 - CGContextRotateCTM
