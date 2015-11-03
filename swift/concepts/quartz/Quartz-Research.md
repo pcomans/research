@@ -267,6 +267,18 @@ Changing colors after the fact:
 
 **Note:** If you obtain a context from a framework or another source, you should not assume the context parameters are set to the values you need. You need to set the graphics state parameters to those appropriate for your drawing task.
 
+**Parameters that affect how Quartz strokes:**  
+
+- **CGContextSetLineWidth** - Line width
+- **CGContextSetLineJoin** - Line join
+- **CGContextSetLineCap** - Line cap
+- **CGContextSetMiterLimit** - Miter limit
+- **CGContextSetLineDash** - Line dash pattern
+- **CGContextSetStrokeColorSpace** - Stroke color space
+- **CGContextSetStrokeColorCGContextSetStrokeColorWithColor** - Stroke color
+- **CGContextSetStrokePattern** - Stroke pattern
+
+
 **CGContextSaveGState**  
 makes a copy of the current graphics state in the context and pushes that copy onto the top of the graphics state stack. The exe- cution of CGContextSaveGState does not modify any of the values in the current graphics state.
 **CGContextRestoreGState**  
