@@ -179,14 +179,14 @@ There are 2 ways to trasnform vector:
 - **CGAffineTransformMake**: but unlike the other functions that make new affine transforms, this one requires you to supply matrix entries. To effectively use this function, you need to have an understanding of matrix math
 - **CGPointApplyAffineTransform** You operate on a CGPoint structure by calling the function CGPointApplyAffineTransform.
 - **CGSizeApplyAffineTransform** You can operate on a CGRect structure by calling the function CGRectApplyAffineTransform. This function returns the smallest rectangle that contains the transformed corner points of the rectangle passed to it. If the affine transform that operates on the rectangle performs only scaling and translation operations, the returned rectangle coincides with the rectangle constructed from the four transformed corners.
+- **CGAffineTransformIdentity** 
 
 **Concatenating transformations:** (and applying it to a CGPath instance)
 ```objc
-CGAffineTransform affineTransform = CGAffineTransformIdentity; affineTransform = CGAffineTransformConcat(affineTransform,
-CGAffineTransformMakeTranslation(-100, -100)); 
+CGAffineTransform affineTransform = CGAffineTransformIdentity; 
+affineTransform = CGAffineTransformConcat(affineTransform,CGAffineTransformMakeTranslation(-100, -100)); 
 affineTransform = CGAffineTransformConcat(affineTransform,CGAffineTransformMakeRotation(pi / 6)); 
-affineTransform = CGAffineTransformConcat(
-affineTransform, CGAffineTransformMakeTranslation(100, 100));
+affineTransform = CGAffineTransformConcat(affineTransform, CGAffineTransformMakeTranslation(100, 100));
 CGPathRef transformedPath = CopyPathWithTransformation( umbrellaPath, affineTransform);
 ```
 **Transforming the context:**
