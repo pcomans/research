@@ -187,7 +187,7 @@ CGAffineTransform affineTransform = CGAffineTransformIdentity;
 affineTransform = CGAffineTransformConcat(affineTransform,CGAffineTransformMakeTranslation(-100, -100)); 
 affineTransform = CGAffineTransformConcat(affineTransform,CGAffineTransformMakeRotation(pi / 6)); 
 affineTransform = CGAffineTransformConcat(affineTransform, CGAffineTransformMakeTranslation(100, 100));
-CGPathRef transformedPath = CopyPathWithTransformation( umbrellaPath, affineTransform);
+CGPathRef transformedPath = CopyPathWithTransformation( umbrellaPath, affineTransform);//replace CopyPathWi.. with CGPathCreateMutableCopyByTransformingPath
 ```
 **Transforming the context:**
 ```swift
