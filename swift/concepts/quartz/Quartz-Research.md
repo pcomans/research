@@ -169,6 +169,13 @@ There are 2 ways to trasnform vector:
 3. Add the untransformed path with CGContextAddPath.
 4. Restore the Quartz coordinate system with CGContextRestoreGState.
 
+- **CGAffineTransformMakeTranslation**: To construct a new translation matrix from x and y values that specify how much to move the origin.
+- **CGAffineTransformTranslate**: To apply a translation operation to an existing affine transform.
+- **CGAffineTransformMakeRotation**: To construct a new rotation matrix from a value that specifies in radians how much to rotate the coordinate system.
+- **CGAffineTransformRotate**: To apply a rotation operation to an existing affine transform.
+- **CGAffineTransformMakeScale**: To construct a new scaling matrix from x and y values that specify how much to stretch or shrink coordinates.
+- **CGAffineTransformScale**: To apply a scaling operation to an existing affine transform.
+- **CGAffineTransformInvert**: Inversion is generally used to provide reverse transformation of points within transformed objects. Inversion can be useful when you need to recover a value that has been transformed by a matrix: Invert the matrix, and multiply the value by the inverted matrix, and the result is the original value. You usually don’t need to invert transforms because you can reverse the effects of transforming the CTM by saving and restoring the graphics state.
 
 ```swift
 // Create a new transform consisting of a 45-degree rotation
