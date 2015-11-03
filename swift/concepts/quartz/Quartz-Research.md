@@ -155,6 +155,20 @@ Quartz provides two ways to perform clipping. The first is based on paths. In Ti
 
 Quartz offers two convenience functions that clip to a rectangular area. The function CGContextClipToRect intersects a rectangle with the existing clipping area. Quartz intersects the supplied rectangle with the existing clipping area to create the new clipping area on the context. The function CGContextClipToRectsconstructs a clipping area that consists of the interior of a sequence of rectangles. Quartz intersects the interior of these rectangles with the existing clipping area to create a new clipping area. The function CGContextClipToRects uses the non- zero winding number rule to determine the interior of the rectangles. Both these functions ignore any existing path in the context; after they return, the current path in the context is empty.
 
+- **CGContextClip:** Uses the nonzero winding number rule to calculate the intersection of the current path with the current clipping path.
+- **CGContextEOClip** Uses the even-odd rule to calculate the intersection of the current path with the current clipping path.
+- **CGContextClipToRect:** Sets the clipping area to the area that intersects both the current clipping path and the specified rectangle.
+- **CGContextClipToRects:** Sets the clipping area to the area that intersects both the current clipping path and region within the specified rectangles.
+- **CGContextClipToMask:** Maps a mask into the specified rectangle and intersects it with the current clipping area of the graphics context. Any subsequent path drawing you perform to the graphics context is clipped. (See “Masking an Image by Clipping the Context” (page 149).)
+
+**Setting up a circular clip area:**
+```objc
+CGContextBeginPath (context);
+CGContextAddArc (context, w/2, h/2, ((w>h) ? h : w)/2, 0, 2*PI, 0);
+CGContextClosePath (context);
+CGContextClip (context);
+```
+
 ## CGPath 
 **CGPathRef** cannot be modified or added to but a  
 **CGMutablePathRef** can be modified.  
