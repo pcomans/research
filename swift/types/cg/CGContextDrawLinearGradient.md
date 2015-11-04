@@ -24,7 +24,7 @@ Specifies what happens if your start or end point isn’t at the edge of the gra
 To extend colors on both sides, specify both the “after” and “before” parameters as a
 logical OR (using the | operator). We’ll see an example later:
 
-Drawing a gradient (not how the gradient is composed pretty cool)
+Drawing a gradient (note how the gradient is composed pretty cool)
 ```objc
 - (void)drawRect:(CGRect)rect{ // Drawing code
 	CGContextRef currentContext = UIGraphicsGetCurrentContext();
