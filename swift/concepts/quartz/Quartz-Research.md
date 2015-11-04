@@ -670,4 +670,5 @@ A way to group graphics together and apply effects to it as a group:  (see pictu
 
 Examples are in the books. (for the sake of brevity)  
 
-
+This may still be valid:  
+You might expect that painting a path with the kCGPathFillStroke painting mode is an atomic painting operation. However, as of this writing (correspond- ing to Tiger and earlier versions), Quartz treats this as two separate painting operations, first a fill, then a stroke. This behavior is a bug; it is not part of the Quartz imaging model. Unfortunately, the fact that using kCGPathFillStroke results in two painting operations affects shadows and alpha compositing.
