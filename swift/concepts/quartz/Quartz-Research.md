@@ -662,8 +662,12 @@ void doAlphaRects(CGContextRef context) {
 
 
 # Honorable mentions:  
-Transparency layers: 
+**Transparency layers:** 
 A way to group graphics together and apply effects to it as a group:  (see picture bellow:)  
 
 <img width="320" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-11-04%20at%2016.11.39.png">  
-<img width="320" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-11-04%20at%2016.11.34.png">
+<img width="320" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-11-04%20at%2016.11.34.png">  
+
+Examples are in the books. (for the sake of brevity)  
+
+
