@@ -661,6 +661,13 @@ void doAlphaRects(CGContextRef context) {
 <img width="350" alt="img" src="https://dl.dropboxusercontent.com/u/2559476/Screen%20Shot%202015-11-02%20at%2013.40.17.png">  
 
 
+# Gradient
+
+There is Axial gradient  and radial gradient  
+Use CGContextDrawLinearGradient for Axial or Linear Gradient  
+Use CGContextDrawRadialGradient for radial gradient  
+
+
 # Honorable mentions:  
 **Transparency layers:** 
 A way to group graphics together and apply effects to it as a group:  (see picture bellow:)  
@@ -672,3 +679,5 @@ Examples are in the books. (for the sake of brevity)
 
 This may still be valid:  
 You might expect that painting a path with the kCGPathFillStroke painting mode is an atomic painting operation. However, as of this writing (correspond- ing to Tiger and earlier versions), Quartz treats this as two separate painting operations, first a fill, then a stroke. This behavior is a bug; it is not part of the Quartz imaging model. Unfortunately, the fact that using kCGPathFillStroke results in two painting operations affects shadows and alpha compositing.
+
+
