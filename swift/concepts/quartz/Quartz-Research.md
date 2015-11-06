@@ -288,7 +288,8 @@ Changing colors after the fact:
 - **CGContextSetMiterLimit** - Miter limit
 - **CGContextSetLineDash** - Line dash pattern
 - **CGContextSetStrokeColorSpace** - Stroke color space
-- **CGContextSetStrokeColorCGContextSetStrokeColorWithColor** - Stroke color
+- **CGContextSetStrokeColor** uses color components
+- **CGContextSetStrokeColorWithColor** - Stroke color CGColor
 - **CGContextSetStrokePattern** - Stroke pattern
 
 
