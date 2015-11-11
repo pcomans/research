@@ -56,4 +56,5 @@ func test(){
 }
 
 
-
+//nan
+doubleValue.isNaN
