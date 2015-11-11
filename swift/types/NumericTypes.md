@@ -56,5 +56,9 @@ func test(){
 }
 
 
-//nan
-doubleValue.isNaN
+
+//assert NaN
+doubleValue.isNaN//true false
+
+//set NaN
+let val:Double = Double.NaN
