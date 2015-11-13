@@ -13,7 +13,7 @@ This research paper should result in a comprehensive Graphics Util lib, so that 
 - Transformations of Paths
 - Applying Shadows to paths
 - Applying stroke and fill Gradients 
-- An overview of all the convenience methods quartz offer. (**So that you know what id doesn't offer**)
+- An overview of all the convenience methods quartz offer. (**So that you know what it doesn't offer**)
 - Working with text
 
 **Things this research paper does not cover:**    
