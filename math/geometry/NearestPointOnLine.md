@@ -1,4 +1,7 @@
 
+[nsHipster on geometry in swift](http://nshipster.com/cggeometry/) 
+
+
 Calculates the nearest point to this point on a line from `pointA` to `pointB`.
 NOTE: provides a convenience method for working with pathfinding graphs.
 ```swift
