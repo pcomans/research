@@ -1,6 +1,37 @@
 //aubscripts enable you to access data via brackets like: instance[2] pr instance["color"] or instance["color",3]
 //NOTE: https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Subscripts.html#//apple_ref/doc/uid/TP40014097-CH16-ID305
 
+
+```swift
+let punch = Punchlist()
+punch["nid"] = "123"
+println(punch["nid"])
+
+class Punchlist {
+    var nid: String?
+    var title: String?
+
+    subscript(key: String) -> String? {
+        get {
+            if key == "nid" {
+                return nid
+            } else if key == "title" {
+                return title
+            }
+            return nil
+        }
+        set {
+            if key == "nid" {
+                nid = newValue
+            } else if key == "title" {
+                title = newValue        
+            }
+        }
+    }
+}
+```
+
+```swift
 struct TimesTable {
     let multiplier: Int
     subscript(index: Int) -> Int {
@@ -12,7 +43,9 @@ print("six times three is \(threeTimesTable[6])")
 // prints "six times three is 18"
 
 //
+```
 
+```swift
 class Matrix {
     let rows: Int, columns: Int
     var grid: [Double]
@@ -38,6 +71,7 @@ class Matrix {
 
 matrix[0, 1] = 1.5
 matrix[1, 0] = 3.2
+```
 
 //Subscripts
 
