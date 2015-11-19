@@ -1,6 +1,7 @@
 //Generics
 //NOTE: generics are better than using any or anyobject in that they keep the type that was passed to them
 //greate example: http://www.thomashanning.com/swift-generics/
+```swift
 
 class TestClass {
 	var singleProperty : String = "A string"
@@ -18,19 +19,21 @@ func displayArray<T>(theArray : [T]) -> T {
 	let finalElement : T = theArray[theArray.count-1]
 	return finalElement
 }
+
 var finalInt = displayArray(myInts)
 //print(finalInt)
 var finalString = displayArray(myStrings)
 //print(finalString.uppercaseString)
 
 
+```
 
 
 
 
 
 
-/*
+
 You may have noticed that the bodies of the swapTwoInts(_:_:), swapTwoStrings(_:_:), and swapTwoDoubles(_:_:) functions are identical. The only difference is the type of the values that they accept (Int, String, and Double).
 
 It would be much more useful, and considerably more flexible, to write a single function that could swap two values of any type. Generic code enables you to write such a function. (A generic version of these functions is defined below.)
@@ -42,7 +45,8 @@ In all three functions, it is important that the types of a and b are defined to
 Generic Functions
 
 Generic functions can work with any type. Here’s a generic version of the swapTwoInts(_:_:) function from above, called swapTwoValues(_:_:):
-*/
+
+```swift
 
 func swapTwoStrings(inout a: String, inout _ b: String) {
     let temporaryA = a
@@ -61,3 +65,4 @@ func swapTwoValues<T>(inout a: T, inout _ b: T) {
     a = b
     b = temporaryA
 }
+```
