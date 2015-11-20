@@ -112,7 +112,7 @@ print1n("The alias is \(tom.alias)")
 //NSArray maps to [AnyObject]
 //Objective-C
 /*
-NSArray *people = [myAVOueueP1ayer items';
+NSArray *people = [myAVOueueP1ayer items];
 */
 //Swift
 // cast as a specific array

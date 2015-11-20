@@ -1,4 +1,19 @@
 //array
+
+
+
+//NSArray maps to [AnyObject]
+//Objective-C
+/*
+NSArray *people = [myAVOueueP1ayer items];
+*/
+//Swift
+// cast as a specific array
+var a1lSongs = myAVOueuePLayer.items() as [AVPlayerltem]
+
+
+
+
 import Foundation
 /**
 *
