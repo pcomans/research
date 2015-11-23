@@ -1,4 +1,4 @@
-//https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/HandlingMouseEvents/HandlingMouseEvents.html
+//Lots of examples: https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/HandlingMouseEvents/HandlingMouseEvents.html
 
 /*
 
@@ -68,3 +68,6 @@ A NSNotification is published to anyone who is interested in this state change, 
 
 
 NOTE: you can stop an NSEvent from propegating by overriding mouseDown and then not call super.mouseDown() in this override. then the event wont propegate up the NSResponder chain
+
+
+
