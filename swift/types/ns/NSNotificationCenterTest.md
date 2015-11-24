@@ -61,3 +61,10 @@ NSLog(@"%@", aView);
 
 
 
+NSNotificationCenter.defaultCenter().postNotificationName("SomeNotification" object:self)
+NSNotificationCenter.defaultCenter().addObserver(self, selector: "someObserver:", name: SomeNotification, object: nil)
+func someObserver(sender: AnyObject) {
+}
+NSNotificationCenter.defaultCenter().removeObserver(self name: SomeNotification, object: nil)
+//alternatively you can remove all observers on this object:
+NSNotificationCenter.defaultCenter().removeObserver(self)
