@@ -64,3 +64,79 @@ class MyViewController:UIViewController, MyClassDelegate {
     }
     ...
 }
+
+
+
+
+another Example
+
+```swift
+protocol Targetable {
+    var life: Int { get set }
+    func takeDamage(damage: Int)
+}
+
+protocol Shootable {
+    func shoot(target: Targetable)
+}
+
+class Pistol: Shootable {
+    func shoot(target: Targetable) {
+        target.takeDamage(1)
+    }
+}
+
+class Shotgun: Shootable {
+    func shoot(target: Targetable) {
+        target.takeDamage(5)
+    }
+}
+
+class Enemy: Targetable {
+    var life: Int = 10
+
+    func takeDamage(damage: Int) {
+        life -= damage
+        println("enemy lost \(damage) hit points")
+
+        if life <= 0 {
+            println("enemy is dead now")
+        }
+    }
+}
+
+class Player {
+    var weapon: Shootable!
+
+    init(weapon: Shootable) {
+        self.weapon = weapon
+    }
+
+    func shoot(target: Targetable) {
+        weapon.shoot(target)
+    }
+}
+
+var terminator = Player(weapon: Pistol())
+
+var enemy = Enemy()
+
+terminator.shoot(enemy)
+//> enemy lost 1 hit points
+terminator.shoot(enemy)
+//> enemy lost 1 hit points
+terminator.shoot(enemy)
+//> enemy lost 1 hit points
+terminator.shoot(enemy)
+//> enemy lost 1 hit points
+terminator.shoot(enemy)
+//> enemy lost 1 hit points
+
+// changing weapon because the pistol is inefficient
+terminator.weapon = Shotgun()
+
+terminator.shoot(enemy)
+//> enemy lost 5 hit points
+//> enemy is dead now
+
+```
