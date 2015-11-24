@@ -1,3 +1,4 @@
+```swift
 import Foundation
 import Cocoa
 
@@ -15,10 +16,11 @@ class Test{
         print("Received Notification - Someone seems to have logged in" + String(notification.object.self))
     }
 }
+```
 
 //http://nshipster.com/nsnotification-and-nsnotificationcenter/
 
-/*
+
 Maybe you can use NSNotificationCenter this way:
 
 1. list contains many lables
@@ -29,27 +31,23 @@ Maybe you can use NSNotificationCenter this way:
 
 4. then in the list we add observer to listen for the unique event type, with an obj that equals self
 
-TODO: read about the object in nsnotifactioncenter
+**TODO: read about the object in nsnotifactioncenter**
 
-NOTE: or you could set the object to self and let the observer determine if it is a child or not
+**NOTE:** or you could set the object to self and let the observer determine if it is a child or not
 
-Note: set it to self and then have the observer determine if its a child via a static method that walks up the view hirarchy
+**Note:** set it to self and then have the observer determine if its a child via a static method that walks up the view hirarchy
 
-a propsal for 
-
+a propsal:
+ 
+```swift
 isChild(parent:NSView,child:NSChild){
 	loop up the view hirarchy until parent === child.superview then return true
 	else return false
 }
 
-*/
-
-//Is there a simple way to walk back up the NSView hierarchy (superview of superview of superview of nsview) to the main window or a point in between?
+//TODO: Is there a simple way to walk back up the NSView hierarchy (superview of superview of superview of nsview) to the main window or a point in between?
 
 
-
-
-/*
 NSView *aView = myView;
 while ((aView = [aView superview])) {
 NSLog(@"%@", aView);
@@ -68,3 +66,4 @@ func someObserver(sender: AnyObject) {
 NSNotificationCenter.defaultCenter().removeObserver(self name: SomeNotification, object: nil)
 //alternatively you can remove all observers on this object:
 NSNotificationCenter.defaultCenter().removeObserver(self)
+```
