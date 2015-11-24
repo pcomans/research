@@ -31,7 +31,9 @@ Maybe you can use NSNotificationCenter this way:
 
 4. then in the list we add observer to listen for the unique event type, with an obj that equals self
 
-**TODO: read about the object in nsnotifactioncenter**
+**The object in nsnotifactioncenter**
+object The optional data object associated with the message, set to the message parameter passed to
+the sendMessage method in the example
 
 **NOTE:** or you could set the object to self and let the observer determine if it is a child or not
 
