@@ -34,3 +34,33 @@ myHouse.burglarDetected() // does nothing
 let theHounds = GuardDog()
 myHouse.delegate = theHounds
 myHouse.burglarDetected() // prints "Releasing the hounds!"
+
+
+
+
+
+//MyClass.swift
+protocol MyClassDelegate {
+  func myClassDelegateMethod(sender:MyClass)
+}
+class MyClass {
+    var delegate: MyClassDelegate?
+    func doSomething {
+        delegate?.myClassDelegateMethod(self)
+    }
+}
+Now the parent class, a ViewController we’ve called MYViewController
+
+//MYViewController.swift
+class MyViewController:UIViewController, MyClassDelegate {
+    var myClass:MyClass
+    init() {
+        myClass = MyClass()
+        myClass.delegate = self
+        myClass.doSomething()
+    }
+    func myClassDelegateMethod(sender:MyClass) {
+        println("MyClass called this method via MyClassDelegate!")
+    }
+    ...
+}
