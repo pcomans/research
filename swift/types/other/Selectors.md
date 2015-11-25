@@ -1,0 +1,1 @@
+Selectors are usualy used when using NSTimer etc
