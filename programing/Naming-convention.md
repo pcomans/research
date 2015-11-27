@@ -27,8 +27,6 @@ disconnect
 create  
 generate  
   
-  
-  
 **Processional (state)**  
 activate  
 close  
@@ -57,7 +55,7 @@ Assign
 Allocate (distribute resources or assignment to for a particular purpose)  
 aggregate (structure formed from a loosely compacted mass of fragments or particles)  
 configure  
-compute ()  
+compute 
 collate (collect and combine (texts, information, or sets of figures) in proper order.)  
 create  
 calculate  
@@ -75,11 +73,8 @@ trigger
 process  
 prepare  
 rollback  
-update  
-  
-  
-  
-  
+update 
+initialize 
   
 **Modificational**  
 apply  
@@ -94,7 +89,6 @@ reconfigure
 truncate (shorten (something) by cutting off the top or the end)  
 trim (make (something) neat or of the required size or form by cutting away irregular or unwanted parts)  
 write  
-  
   
 **Services (parsing)**  
 find  
