@@ -1,5 +1,5 @@
 
-//consider using structs 
+NOTE: consider using structs 
 
 
 ```swift
@@ -27,6 +27,9 @@ var diameter: Double {
   }
 }
 ```
+
+
+**Overriding variables**
 
 ```swift
 class A{
