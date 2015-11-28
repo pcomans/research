@@ -110,3 +110,7 @@ public class func defaultFocusRingType() -> NSFocusRingType
         [NSGraphicsContext restoreGraphicsState];
     }
 ```
+
+
+drag and drop tutorial:  
+https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CocoaViewsGuide/SubclassingNSView/SubclassingNSView.html#//apple_ref/doc/uid/TP40002978-CH7-SW22
