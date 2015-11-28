@@ -1,5 +1,9 @@
 Lots of goodies:
 https://github.com/nschum/SwiftCGRectExtensions
+especially:
+https://github.com/nschum/SwiftCGRectExtensions/blob/master/CGRectExtensions/CGRectExtensions.swift
+
+
 like:
 ```swift
 import Foundation
