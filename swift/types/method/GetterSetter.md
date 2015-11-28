@@ -27,3 +27,18 @@ var diameter: Double {
   }
 }
 ```
+
+```swift
+class A{
+    var x:CGFloat = 0
+}
+class B:A{
+    override var x:CGFloat {get{return super.x}set{super.x = newValue}}
+}
+
+
+let b:B = B()
+b.x = 5
+b.x//outputs 5
+```
+
