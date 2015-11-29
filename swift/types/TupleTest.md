@@ -1,3 +1,5 @@
+```swift
+
 import Foundation
 func testing(){
     //tuples are almost like objects
@@ -94,3 +96,5 @@ func testing(){
     }
     */
 }
+
+```

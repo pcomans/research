@@ -1,5 +1,6 @@
 //store different types in the same dataContainer instance:
 
+```swift
 class Tree <T> {
 
     // 'T' can now be used as a type
@@ -32,3 +33,4 @@ let stringTree = Tree<String>(value: "Hello")
 stringTree.addChild("Yes")
 stringTree.addChild("Internets")”
 
+```
