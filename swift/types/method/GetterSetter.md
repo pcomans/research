@@ -45,3 +45,9 @@ b.x = 5
 b.x//outputs 5
 ```
 
+**private setter public getter variable swift**
+
+private(set) public var readonlyProperty: Int
+
+//for none framework code:
+private(set) internal var readonlyProperty: Int
