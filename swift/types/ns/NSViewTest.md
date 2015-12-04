@@ -2,7 +2,6 @@
 
 **Translucent window**   http://stackoverflow.com/questions/24023183/how-can-i-create-yosemite-style-view-with-translucent-blurry-background
 
-
 **NSView has three different modes**  
 In which it handles it’s content. Compared to UIView from the Cocoa Touch Frameworks, which already has a CALayer ready to use.
 Here are the different modes of an instance of the NSView Class:
@@ -13,9 +12,9 @@ Here are the different modes of an instance of the NSView Class:
 
 3. **Layer Hosted view:** In this mode the NSView has no knowledge about the CALayer or any of it’s sublayers it contains and it won’t care about it either. As a programmer you have to manage it. The NSView just shows it, but it will use drawRect:dirtyRect to draw the CALayer.
 
+**Discussion 1:** The order that  setWantsLayer: and setLayer: are called is important, it makes the distinction between a layer-backed view, and a layer-hosting view.
 
-
-**Discussion** The order that  setWantsLayer: and setLayer: are called is important, it makes the distinction between a layer-backed view, and a layer-hosting view.
+**Discussion 2:**  Layer-backed views always *appear* above non-layer-backed views. Effectively, all non-layer-backed views get rendered into a single layer that makes up the entire window.
 
 **A layer-backed view** is a view that is backed by a Core Animation layer. Any drawing done by the view is the cached in the backing layer. You configured a layer-backed view by simply invoking  setWantsLayer: with a value of YES. The view class will automatically create the a backing layer for you, and you use the view class’s drawing mechanisms. When using layer-backed views you should never interact directly with the layer.
 
