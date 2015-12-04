@@ -117,3 +117,16 @@ func testing(){
     
     
 }
+
+
+
+## **Casting Array<Any> to Array<String>**
+
+```swift
+let arrayOfAny:Array<Any> = [1,"2",3.0,CGFloat(4)]
+let stringArray:Array<String> = arrayOfAny.map {String($0)}
+print(stringArray)//"1", "2", "3.0","4.0"
+```
+
+**Conclusion:**  
+Sometimes its useful to convert from one array type to another. The best approach is in most cases not to convert the array type but to either do instance checking before packing the array or instance checking before unpacking the array
