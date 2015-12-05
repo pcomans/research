@@ -77,4 +77,5 @@ func test(){
 
 
 
-        
+Popover window:
+http://mattgemmell.com/maattachedwindow-nswindow-subclass/
