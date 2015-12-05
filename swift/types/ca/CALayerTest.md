@@ -2,9 +2,10 @@
 
 
 
-/*
-Properties of CALayer:
 
+**Properties of CALayer:**
+
+```objc
 class CALayer: NSObject {
     var bounds: CGRect
     var position: CGPoint
@@ -24,11 +25,12 @@ class CALayer: NSObject {
 
     var actions: [NSObject : AnyObject]!  // Defaults to nil!
     var delegate: AnyObject! // NSObject (CALayerDelegate)
-    // ...
-*/
-/*
-Draw an image in an calayer:
 
+```
+
+**Draw an image in an calayer:**
+
+```objc
 CALayer *sublayer = [CALayer layer];
 sublayer.backgroundColor = [UIColor blueColor].CGColor;
 sublayer.shadowOffset = CGSizeMake(0, 3);
@@ -47,13 +49,14 @@ imageLayer.cornerRadius = 10.0;
 imageLayer.contents = (id) [UIImage imageNamed:@"BattleMapSplashScreen.jpg"].CGImage;
 imageLayer.masksToBounds = YES;
 [sublayer addSublayer:imageLayer];
-*/
+
+```
 
 
 
-/*
 //more in the COcoa book from big nerd ranch
 //TextLayer: 
+```swift
 let textContainer = CALayer()
         textContainer.anchorPoint = CGPoint.zeroPoint
         textContainer.position = CGPointMake(10, 10)
@@ -74,4 +77,5 @@ let textContainer = CALayer()
         self.textLayer = textLayer”
 
 		   textContainer.addSublayer(textLayer)
-*/
+
+```
