@@ -30,3 +30,36 @@ func ⊕(left: [Int], right: [Int]) -> [Int] { // 2
     }
     return sum
 }
+
+This one works:
+
+infix operator ⊕ { associativity left precedence 140 }
+func ⊕<T>(left: [T], right: [T]) -> [T] { // 1
+    var minus = [T]()
+    assert(left.count == right.count, "vector of same length only")
+    for (key, v) in enumerate(left) {
+        minus.append(left[key] + right[key]) // 2
+    }
+    return minus
+}
+
+
+extending with protocol:
+
+protocol Number {  // 1
+    func +(l: Self, r: Self) -> Self // 2
+}
+ 
+extension Double : Number {} // 3
+extension Float  : Number {}
+extension Int    : Number {}
+ 
+infix operator ⊕ { associativity left precedence 140 }
+func ⊕<T: Number>(left: [T], right: [T]) -> [T] { // 4
+    var minus = [T]()
+    assert(left.count == right.count, "vector of same length only")
+    for (key, v) in enumerate(left) {
+        minus.append(left[key] + right[key])
+    }
+    return minus
+}
