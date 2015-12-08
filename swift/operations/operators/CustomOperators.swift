@@ -17,3 +17,16 @@ var toBeDoubled = Vector2D(x: 1.0, y: 4.0)
 let afterDoubling = +++toBeDoubled
 // toBeDoubled now has values of (2.0, 8.0)
 // afterDoubling also has values of (2.0, 8.0)
+
+
+or this one from here: (http://www.raywenderlich.com/80818/operator-overloading-in-swift-tutorial)
+
+infix operator ⊕ { associativity left precedence 140 } // 1
+func ⊕(left: [Int], right: [Int]) -> [Int] { // 2
+    var sum = [Int](count: left.count, repeatedValue: 0)
+    assert(left.count == right.count, "vector of same length only")
+    for (key, v) in enumerate(left) {
+        sum[key] = left[key] + right[key]
+    }
+    return sum
+}
