@@ -1,3 +1,6 @@
+Video source: 
+There is an apple video about View based table view. its mentioned in session 217 44:14 Layerbacked views
+
 // example of tableview with custom design? https://developer.apple.com/library/mac/samplecode/TableViewPlayground/TableViewPlayground.zip
 
 //and this //http://stackoverflow.com/questions/4599747/programmatically-creating-an-nstableview-trouble-getting-the-nsheaderview-to-sh?rq=1
