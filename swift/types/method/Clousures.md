@@ -1,3 +1,6 @@
+losure as a variable [link](http://stackoverflow.com/questions/24603559/store-a-closure-as-a-variable-in-swift) and more complex examples: [link](http://fuckingclosuresyntax.com) 
+
+
 //“ this is what closures look like:”
 
 let aClosure : Void -> Int = { return 1 }
