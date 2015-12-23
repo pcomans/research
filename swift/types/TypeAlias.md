@@ -1,7 +1,7 @@
 I dont think you should use type alias too much, but here is a good example: (I wonder what scope type alias works under)
 
 ```swift
-
+//NOTE: i think typealias is nice to use with selectors?
 typealias returnedFunctionType = (Int) -> String
 
 func myFuncThatReturnsAFunc() -> returnedFunctionType {
