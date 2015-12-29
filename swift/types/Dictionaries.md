@@ -1,3 +1,7 @@
+
+//Cretes a new dictonary
+var dict:Dictionary<String, String> = Dictionary<String, String>()
+
 **If you ever need deep copy of a Dictionary:** Drawkit- NSDictionary+DeepCopy.m
 
 //dictionaries are like associative arrays
