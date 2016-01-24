@@ -79,3 +79,10 @@ func test(){
 
 Popover window:
 http://mattgemmell.com/maattachedwindow-nswindow-subclass/
+
+
+resizing nswindow:
+func windowWillResize(sender: NSWindow, toSize frameSize: NSSize) -> NSSize {
+    Swift.print("windowWillResize")
+    return frameSize
+}
