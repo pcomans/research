@@ -38,3 +38,10 @@ func someMethod(aNum:Int)->Int{
 
 doSomethingToNumber(4, someMethod)//8
 ```
+
+NOTE: 
+You can also wrap the entire argument and make it optional like:
+
+```swift
+(thingToDo: (Int)->Int)? = nil/*this is similar to doing: a:String? = nil*/
+```
