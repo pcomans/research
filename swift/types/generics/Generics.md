@@ -2,6 +2,7 @@
 //NOTE: generics are better than using any or anyobject in that they keep the type that was passed to them
 //greate example: http://www.thomashanning.com/swift-generics/
 //really good on advance generics: http://austinzheng.com/2015/09/29/swift-generics-pt-2/
+//also good: http://oleb.net/blog/2015/09/swift-ranges-and-intervals/  (talks about limitation with max int values etc)
 ```swift
 
 class TestClass {
