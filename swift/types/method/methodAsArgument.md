@@ -1,3 +1,4 @@
+```swift
 func test(){
     var array:Array = ["a","c","b"]
     array.sortInPlace(>)
@@ -19,3 +20,21 @@ func doSomethingToNumber(aNumber: Int, thingToDo: (Int)->Int) -> Int {
     return thingToDo(aNumber);
 }
 
+```
+
+Better example:
+
+```swift
+/**
+ * we've received some function as a parameter, which we refer to as
+ */
+func doSomethingToNumber(aNumber: Int, _ thingToDo: (Int)->Int) -> Int {
+    return thingToDo(aNumber);// calls the function 'thingToDo' using 'aNumber', and return the result
+}
+
+func someMethod(aNum:Int)->Int{
+    return aNum + aNum
+}
+
+doSomethingToNumber(4, someMethod)//8
+```
