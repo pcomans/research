@@ -31,3 +31,21 @@ paul > otherPaul  // false
 paul <= ben       // false
 paul == otherPaul // true
 ```
+
+EXAMPLE:
+
+```swift
+var numbers = [4,2,5,1,0,-1,22,3]
+
+func before<T:Comparable>(a: T, b: T) -> Bool {
+    return a < b;
+}
+
+let sortedNumbers = conditionSort(numbers, before)//-1,0,1,2,3,4,5,22
+print(sortedNumbers)
+```
+
+
+
+NOTE:
+there is also: Striding over Strideable values, which are Comparable and can be advanced an arbitrary distance in O(1).
