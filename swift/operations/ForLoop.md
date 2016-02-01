@@ -14,6 +14,10 @@ func test(){
         print(i)
     }
     
+    for var i = self.subviews.count-1; i > -1; --i{
+        Swift.print(i)
+    }
+    
     //loop with range
     //CAUTION: this doesnt work with tiny ranges such as 0 to 1 or 0 to 0 or 1 to 1 etc. For safty use regular for i
     for index in 1...9 {//0...someVal will also work, or 0...<5 will do 0-4
