@@ -111,7 +111,7 @@ public class func defaultFocusRingType() -> NSFocusRingType
 ```
 
 
-drag and drop tutorial:  
+**drag and drop tutorial:**  
 https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/CocoaViewsGuide/SubclassingNSView/SubclassingNSView.html#//apple_ref/doc/uid/TP40002978-CH7-SW22
 
 https://developer.apple.com/library/mac/samplecode/DragItemAround/Introduction/Intro.html#//apple_ref/doc/uid/DTS10003900
