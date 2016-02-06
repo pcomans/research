@@ -1,3 +1,18 @@
+//Very important concerning protocol. extend the protocol to class if you plan to mutate the variables on an instance through a protocol
+```swift
+protocol ISomething:class{
+	var something:String {get set}
+}
+class A:ISomething{
+	var something:String = "" 
+}
+class B:A{
+}
+let b = B()
+(a as! ISomething).something = "abc"//<- this line will throw an error if the protocol didnt extend class. Why? because protocols can also extend struct etc
+
+```
+
 //more on protocol conformance: https://developer.apple.com/library/prerelease/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Protocols.html#//apple_ref/doc/uid/TP40014097-CH25-ID283
 //some cool examples: http://en.swifter.tips/protocol-composition/
 /**
