@@ -1,4 +1,4 @@
-Selectors are usualy used when using NSTimer etc (there is an overview of all apple methods that uses a selector somewhere in your docs)
+Selectors are usually used when using NSTimer etc (there is an overview of all apple methods that uses a selector somewhere in your docs)
 
 selectors can be used to check if a method exists:
 ```swift
