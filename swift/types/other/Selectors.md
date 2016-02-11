@@ -22,3 +22,5 @@ class EventSender:IEventSender {
     var event: ((event:Event) -> ())?/*this holds any method assigned to it that has its type*/
 }
 ```
+
+NOTE: also see closures.md

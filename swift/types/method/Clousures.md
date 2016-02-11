@@ -1,4 +1,4 @@
-losure as a variable [link](http://stackoverflow.com/questions/24603559/store-a-closure-as-a-variable-in-swift) and more complex examples: [link](http://fuckingclosuresyntax.com) 
+closure as a variable [link](http://stackoverflow.com/questions/24603559/store-a-closure-as-a-variable-in-swift) and more complex examples: [link](http://fuckingclosuresyntax.com) 
 
 
 //“ this is what closures look like:”
@@ -44,4 +44,20 @@ class Child {
         return closure()
     }
 }
+```
+
+
+From the apple docs:
+
+```swift
+//Closure Expression Syntax
+
+//Closure expression syntax has the following general form:
+
+    { (parameters) -> return type in
+
+        statements
+
+    }
+
 ```
