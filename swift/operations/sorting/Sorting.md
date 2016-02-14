@@ -1,4 +1,4 @@
-sort witha custom func [link](http://www.dotnetperls.com/sort-swift) 
+sort with a custom func [link](http://www.dotnetperls.com/sort-swift) 
 
 sort with closures: [link](https://www.andrewcbancroft.com/2014/08/16/sort-yourself-out-sorting-an-array-in-swift/) 
 
