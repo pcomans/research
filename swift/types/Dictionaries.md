@@ -6,9 +6,9 @@ var dict:Dictionary<String, String> = Dictionary<String, String>()
 
 //dictionaries are like associative arrays
 //the following two declarations are equivalent:
-/**
-*
-*/
+
+
+```swift
 func testing(){
     let someDictionary: [String: Int] = ["Alex": 31, "Paul": 39]
     let someDictionary2: Dictionary<String, Int> = ["Alex": 31, "Paul": 39]
@@ -107,7 +107,7 @@ func testing(){
     print(favoriteGenres.contains("Funk")) //To) check whether a set contains a particular item, use the contains(_:) method.
     favoriteGenres.insert("Jazz")
     // favoriteGenres now contains 4 items
-    print(Array(theDict.keys))//convert the map collection view propertiesinto an usable Array
+    print(Array(theDict.keys))//convert the map collection view properties into an usable Array
     
     /**
     Use the intersect(_:) method to create a new set with only the values common to both sets.
@@ -124,6 +124,7 @@ func testing(){
     Use the isDisjointWith(_:) method to determine whether two sets have any values in common.
     */
 }
+```
 
 
 ```swift
