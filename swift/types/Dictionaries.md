@@ -1,5 +1,5 @@
 
-//Cretes a new dictonary
+//Creates a new dictonary
 var dict:Dictionary<String, String> = Dictionary<String, String>()
 
 **If you ever need deep copy of a Dictionary:** Drawkit- NSDictionary+DeepCopy.m
@@ -124,3 +124,19 @@ func testing(){
     Use the isDisjointWith(_:) method to determine whether two sets have any values in common.
     */
 }
+
+
+```swift
+let h:Dictionary<String, Int> = ["Alex": 31, "Paul": 39]
+let i:Dictionary<String, Int> = ["Alex": 32, "Paul": 39]
+
+Swift.print(h == i)//false
+
+let temp = [h,i]
+    
+let index = temp.indexOf {
+    $0 == i
+}
+index//1
+//
+```
