@@ -134,9 +134,8 @@ Swift.print(h == i)//false
 
 let temp = [h,i]
     
-let index = temp.indexOf {
-    $0 == i
-}
+let index = temp.indexOf {$0 == i} ?? -1//-1 indicates no result found
+    
 index//1
 //
 ```
