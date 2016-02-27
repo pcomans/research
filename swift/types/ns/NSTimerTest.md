@@ -1,5 +1,6 @@
 import Foundation
 //untested but looks good
+```swift
 class Testing {
     
     var timer:NSTimer?
@@ -12,6 +13,7 @@ class Testing {
         print(theStringToPrint)
     }
 }
+```
 
 
 
