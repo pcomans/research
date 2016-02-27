@@ -18,7 +18,9 @@ class Testing {
 
 
 another one:
+```swift
 NSTimer.scheduledTimerWithTimeInterval(delay, target: self, selector: "onFlip", userInfo: nil, repeats: false)
+```
 
 
 perform_selector in swift: (this can be used to call methods/functions by a string)
