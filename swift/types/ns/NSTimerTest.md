@@ -1,5 +1,4 @@
-import Foundation
-//untested but looks good
+## example
 ```swift
 class Testing {
     
@@ -17,17 +16,18 @@ class Testing {
 
 
 
-another one:
+
+## another one:
 ```swift
 NSTimer.scheduledTimerWithTimeInterval(delay, target: self, selector: "onFlip", userInfo: nil, repeats: false)
 ```
 
 
-//stop:
+## stop:
 timer.invalidate()
 
 
-Adding user info:
+## Adding user info:
 
 ```swift
 var timer: NSTimer?
@@ -44,6 +44,11 @@ func event(timer: NSTimer!) {
 }
 ```
 
+## Side notes:
+
+You should probably assert if thetimer is nil before starting a timer if its not nil then invalidate it
+
+## Resources:
 
 perform_selector in swift: (this can be used to call methods/functions by a string)
 https://github.com/tokorom/performSelector-swift
