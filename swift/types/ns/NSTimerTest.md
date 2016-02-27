@@ -23,6 +23,28 @@ NSTimer.scheduledTimerWithTimeInterval(delay, target: self, selector: "onFlip", 
 ```
 
 
+//stop:
+timer.invalidate()
+
+
+Adding user info:
+
+```swift
+var timer: NSTimer?
+
+startTimer() {
+    timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self,
+                    selector: "event:", userInfo: ["custom":"data"], repeats: true)
+    }
+}
+
+func event(timer: NSTimer!) {        
+    let info = timer.userInfo
+    // work with custom data        
+}
+```
+
+
 perform_selector in swift: (this can be used to call methods/functions by a string)
 https://github.com/tokorom/performSelector-swift
 
