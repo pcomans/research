@@ -1,26 +1,26 @@
-Straight A student
+## Straight A student
 
 The intro talks about how the book seperates from other study guide books, that its made from the students point of view, and that its not about about bruteforce studying by sacrifising sleep or recreational time. Craming in all nighters etc.
 
-Psudo workig
+**Psudo workig**
 Many students think they do real wprk by studdying 8 hours straight, bring redbulls to all night readings right before exams etc. Non grond straight a students avoid psudo working at all cost
 
-Time managment
+**Time managment**
 Having a realistic sense of time is arguably themost important trait you can have as a student. Schedual tasks froma calender in the moring leave plenty pf ti e for breaks 1 hour not a stressfull 20min one. Keep the time slots less than 1,5 hours group many smaller tasks into one timeslot, and quit well before bedtime tp have time to relax and unwind. The brain needs breaks to åerform at peak. All this to avoid all nigthers and sub par performance at crucial times. Timetabiling your tasks will also help avoid procrastinating.
 
-Handwritten todo of the day
+**Handwritten todo of the day**
 Keep a small piece of paper with the task of the day and time slots to complete them, also keep a things to remeber section. The next morning transdere the remaining tasks and ps. Things to your callender.
 
-Food
+**Food**
 Drink often, breaks to the bathroom onøy gives your body variation from sitting still.
 Eat healthy, fruite veggies, nuts, avoid sugar that gives you a short burst of energy
 Avoid to much coffinated drinks
 Eat regulary to avoid low energy periods
 
-Procastination
+**Procastination**
 There will be a few days were you have to pull all day marathons to just grind through an asignment. Its important that these days are planed and not a result of procastination.
 
-When to study
+**When to study**
 Short burst of 45 min  to 1.5h. If you have an enpty pocket of time pull out a continuas studdy and read it.
 
 Where to study
