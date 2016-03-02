@@ -22,4 +22,4 @@ Easy to read Feelgood book
 Just a another feel good book  
 
 **Recomendation**  
-Read beautifull architecture and patterns101 ninstead  
+Read beautiful architecture and patterns101 ninstead  
