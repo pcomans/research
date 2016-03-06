@@ -61,3 +61,15 @@ From the apple docs:
     }
 
 ```
+
+
+
+```swift
+var completionHandler:(Float)->Void = {
+    (arg:Float) -> Void in
+}
+
+and this can be shortened to
+
+var completionHandler:(Float)->Void = { arg in }
+```
