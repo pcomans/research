@@ -17,12 +17,12 @@ daysSinceCreation;
 daysSinceModification;
  fileAgeInDays;
 
-Use Solution Domain Names 
+## Use Solution Domain Names 
 Remember that the people who read your code will be programmers. So go ahead and use computer science (CS) terms, algorithm names, pattern names, math terms, and so forth. It is not wise to draw every name from the problem domain because we don’t want our coworkers to have to run back and forth to the customer asking what every name means when they already know the concept by a different name. The name AccountVisitor means a great deal to a programmer who is familiar with the VISITOR pattern. What programmer would not know what a JobQueue was? There are lots of very technical things that programmers have to do. Choosing technical names for those things is usually the most appropriate course.
 
 Blocks and Indenting This implies that the blocks within if statements, else statements, while statements, and so on should be one line long. Probably that line should be a function call. Not only does this keep the enclosing function small, but it also adds documentary value because the function called within the block can have a nicely descriptive name. This also implies that functions should not be large enough to hold nested structures. Therefore, the indent level of a function should not be greater than one or two. This, of course, makes the functions easier to read and understand.
 
-• This is good* We could extract the if statement into a function named includeSetupsAndTeardownsIfTestPage, but that simply restates the code without changing the level of abstraction. So, another way to know that a function is doing more than “one thing” is if you can extract another function from it with a name that is not merely a restatement of its imple- mentation
+**This is good** We could extract the if statement into a function named includeSetupsAndTeardownsIfTestPage, but that simply restates the code without changing the level of abstraction. So, another way to know that a function is doing more than “one thing” is if you can extract another function from it with a name that is not merely a restatement of its imple- mentation
 
 Never use swich statements unless its a factory crating polymorphic instances
 My general rule for switch statements is that they can be tolerated if they appear only once, are used to create polymorphic objects, and are hidden behind an inheritance relationship so that the rest of the system can’t see them [G23]. Of course every circum- stance is unique, and there are times when I violate one or more parts of that rule.
@@ -36,20 +36,20 @@ Arguments are even harder from a testing point of view. Imagine the difﬁculty 
 Flag Arguments 
 Flag arguments are ugly. Passing a boolean into a function is a truly terrible practice. It immediately complicates the signature of the method, loudly proclaiming that this function does more than one thing. It does one thing if the ﬂag is true and another if the ﬂag is false! In Listing 3-7 we had no choice because the callers were already passing that ﬂag in, and I wanted to limit the scope of refactoring to the function and below. Still, the method call render(true) is just plain confusing to a poor reader. Mousing over the call and seeing render(boolean isSuite) helps a little, but not that much. We should have split the function into two: renderForSuite() and renderForSingleTest().
 
-Dyadic Functions 
+## Dyadic Functions 
 A function with two arguments is harder to understand than a monadic function. For exam- ple, writeField(name) is easier to understand than writeField(output-Stream, name).10 Though the meaning of both is clear, the ﬁrst glides past the eye, easily depositing its meaning. The second requires a short pause until we learn to ignore the ﬁrst parameter. And that, of course, eventually results in problems because we should never ignore any part of code. The parts we ignore are where the bugs will hide. There are times, of course, where two arguments are appropriate. For example, Point p = new Point(0,0); is perfectly reasonable. Cartesian points naturally take two arguments. Indeed, we’d be very surprised to see new Point(0). However, the two argu- ments in this case are ordered components of a single value! Whereas output-Stream and name have neither a natural cohesion, nor a natural ordering. 
 
 Structured Programming Some programmers follow Edsger Dijkstra’s rules of structured programming.14 Dijkstra said that every function, and every block within a function, should have one entry and one exit. Following these rules means that there should only be one return statement in a func- tion, no break or continue statements in a loop, and never, ever, any goto statements.While we are sympathetic to the goals and disciplines of structured programming, those rules serve little beneﬁt when functions are very small. It is only in larger functions that such rules provide signiﬁcant beneﬁt. So if you keep your functions small, then the occasional multiple return, break, or continue statement does no harm and can sometimes even be more expressive than the sin- gle-entry, single-exit rule. On the other hand, goto only makes sense in large functions, so it should be avoided.
 
-Wordsmith it.
+## Wordsmith it.
 Writing software is like any other kind of writing. When you write a paper or an article, you get your thoughts down ﬁrst, then you massage it until it reads well. The ﬁrst draft might be clumsy and disorganized, so you wordsmith it and restructure it and reﬁne it until it reads the way you want it to read. When I write functions, they come out long and complicated. They have lots of indenting and nested loops. They have long argument lists. The names are arbitrary, and there is duplicated code. But I also have a suite of unit tests that cover every one of those clumsy lines of code. So then I massage and reﬁne that code, splitting out functions, changing names, elim- inating duplication. I shrink the methods and reorder them. Sometimes I break out whole classes, all the while keeping the tests passing. In the end, I wind up with functions that follow the rules I’ve laid down in this chapter. I don’t write them that way to start. I don’t think anyone could.
 
-Consider the following stretch of code: 
+## Consider the following stretch of code: 
 //does the module from the global list <mod> 
 //depend on the subsystem we are part of?
  if (smodule.getDependSubsystems().contains(subSysMod.getSubSystem())) 
 
-This could be rephrased without the comment as 
+## This could be rephrased without the comment as 
 ArrayList moduleDependees = smodule.getDependSubsystems();
 String ourSubSystem = subSysMod.getSubSystem(); 
 if (moduleDependees.contains(ourSubSystem)) 
@@ -64,7 +64,7 @@ Train Wrecks This kind of code is often called a train wreck because it look lik
 
 Hybrids This confusion sometimes leads to unfortunate hybrid structures that are half object and half data structure. They have functions that do signiﬁcant things, and they also have either public variables or public accessors and mutators that, for all intents and purposes, make the private variables public, tempting other external functions to use those variables the way a procedural program would use a data structure.4 Such hybrids make it hard to add new functions but also make it hard to add new data structures. They are the worst of both worlds. Avoid creating them. They are indicative of a muddled design whose authors are unsure of—or worse, ignorant of—whether they need protection from functions or types.
 
-Dont return null
+## Dont return null
 If you are tempted to return null from a method, consider throwing an exception or returning a SPECIAL CASE object instead. If you are calling a null-returning method from a third-party API, consider wrapping that method with a method that either throws an exception or returns a special case object.
 
 First:
@@ -128,25 +128,25 @@ Every time you see duplication in the code, it represents a missed opportunity f
 The most obvious form of duplication is when you have clumps of identical code that look like some programmers went wild with the mouse, pasting the same code over and over again. These should be replaced with simple methods. A more subtle form is the switch case or if else chain that appears again and again in various modules, always testing for the same set of conditions. These should be replaced with polymorphism. Still more subtle are the modules that have similar algorithms, but that don’t share similar lines of code. This is still duplication and should be addressed by using the TEM- 4 5              4           5
 PLATE METHOD, or STRATEGY pattern.
 
-Abstract base classes:
+## Abstract base classes:
 It is important to create abstractions that separate higher level general concepts from lower level detailed concepts. Sometimes we do this by creating abstract classes to hold the higher level concepts and derivatives to hold the lower level concepts. When we do this, we need to make sure that the separation is complete. We want all the lower level concepts to be in the derivatives and all the higher level concepts to be in the base class. For example, constants, variables, or utility functions that pertain only to the detailed implementation should not be present in the base class. The base class should know noth- ing about them. This rule also pertains to source ﬁles, components, and modules. Good software design requires that we separate concepts at different levels and place them in different containers. Sometimes these containers are base classes or derivatives and sometimes they are source ﬁles, modules, or components. Whatever the case may be, the separation needs to be complete. We don’t want lower and higher level concepts mixed together.
 
-Compact your interface
+## Compact your interface
 Good software developers learn to limit what they expose at the interfaces of their classes and modules. The fewer methods a class has, the better. The fewer variables a func- tion knows about, the better. The fewer instance variables a class has, the better. Hide your data. Hide your utility functions. Hide your constants and your temporaries. Don’t create classes with lots of methods or lots of instance variables. Don’t create lots of protected variables and functions for your subclasses. Concentrate on keeping interfaces very tight and very small. Help keep coupling low by limiting information.
 
-Feature Envy 
+## Feature Envy 
 This is one of Martin Fowler’s code smells.6 The methods of a class should be interested in the variables and functions of the class they belong to, and not the variables and functions of other classes. When a method uses accessors and mutators of some other object to manipulate the data within that object, then it envies the scope of the class of that other object. It wishes that it were inside that other class so that it could have direct access to the variables it is manipulating.
 
-Static functions:
+## Static functions:
 A function should not be static if there is an offchanse that it could be polymorphic in the future. Whne in doubt go for non static.
 
-Readable algorithms
+## Readable algorithms
 One of the more power- ful ways to make a program readable is to break the calculations up into intermediate val- ues that are held in variables with meaningful names. More explanatory variables are generally better than fewer. It is remarkable how an opaque module can suddenly become transparent simply by break- ing the calculations up into well-named intermediate values.
 
-Programming is often an exploration. 
+## Programming is often an exploration. 
 You think you know the right algorithm for something, but then you wind up ﬁddling with it, prodding and poking at it, until you get it to “work.” How do you know it “works”? Because it passes the test cases you can think of. There is nothing wrong with this approach. Indeed, often it is the only way to get a function to do what you think it should. However, it is not sufﬁcient to leave the quotation marks around the word “work.”Before you consider yourself to be done with a function, make sure you understand how it works. It is not good enough that it passes all the tests. You must know10 that the solution is correct. Often the best way to gain this knowledge and understanding is to refactor the func- tion into something that is so clean and expressive that it is obvious how it works.
 
-Prefere Bucket brigade functions
+## Prefere Bucket brigade functions
 Each function produces a result that the next function needs, so there is no reasonable way to call them out of order. You might complain that this increases the complexity of the functions, and you’d be right. But that extra syntactic complexity exposes the true temporal complexity of the situation. Note that I left the instance variables in place. I presume that they are needed by pri- vate methods in the class. Even so, I want the arguments in place to make the temporal coupling explicit.
 
 G33: Encapsulate Boundary Conditions Boundary conditions are hard to keep track of. Put the processing for them in one place. Don’t let them leak all over the code. We don’t want swarms of +1s and -1s scattered hither and yon. Consider this simple example from FIT: 
