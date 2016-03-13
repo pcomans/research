@@ -7,7 +7,7 @@ I dont think you should use type alias too much, but here is a good example: (I 
 
 typealias returnedFunctionType = (Int) -> String
 
-func myFuncThatReturnsAFunc() -> returnedFunctionType {
+func myFuncThatReturnsAFunc() -> returnedFunctionType {//I think type aliases just makes return types more readable
     return { number in
         return "The lucky number is \(number)"
     }
