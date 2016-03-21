@@ -1,3 +1,4 @@
+```swift
 import Foundation
 
 func testing(){
@@ -12,3 +13,5 @@ func testing(){
     var taskItems2 = [[String:String]()]
     taskItems2.append(["color":"blue"])
 }
+
+```
