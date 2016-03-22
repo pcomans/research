@@ -1,3 +1,9 @@
+### Short hand:
+```swift
+let longHandDictionary = Dictionary<String,String>()
+let shortHandDictionary = [String:String]()
+```
+
 
 //Creates a new dictonary
 var dict:Dictionary<String, String> = Dictionary<String, String>()
