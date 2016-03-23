@@ -146,3 +146,8 @@ let index = temp.indexOf {$0 == i} ?? -1//-1 indicates no result found
 index//1
 //
 ```
+
+Find a key at an index (keys will change places randomly so dont rely on this)
+```swift
+nameDict.keys[nameDict.startIndex.advancedBy(0)]
+```
