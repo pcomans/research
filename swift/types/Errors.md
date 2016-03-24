@@ -9,6 +9,7 @@
 //IMPORTANT: there are two ways of doing error handeling. 1. you wrap an error function in a do catch block and 2. you use a variable for the result with the try? . see apple link above for both, they are also here
 /*
 
+```swift
 
 //Use fatalError("message here") for debugging
 
@@ -64,11 +65,13 @@ func test(){
          //not handled error
     }
 }
+```
 //A variant of the try keyword is try!. That keyword may be appropriate for those programmer errors again. If you mark a throwing call with try!, you are promising the compiler that that error will never happen and you do not need to catch it. If the statement does produce an error, the application will stop execution and you should start debugging.
 let theResult = try! doDangerousStuff()
 
 //In order to throw an error you use throw keyword like this
-/*
+```swift
+
 func test3(){
     do {
         try rideTheDragon(redDragon)
@@ -92,11 +95,12 @@ func test3(){
         case NotEnoughMana(manaRequired: Int)
     }
 }
-*/
+```
+
+```swift
 
 //Excerpt From: Apple Inc. “Using Swift with Cocoa and Objective-C (Swift 2 Prerelease).” iBooks.
 //Example: (from the book)
-/*
 NSFileManager *fileManager = [NSFileManager defaultManager];
 NSURL *URL = [NSURL fileURLWithPath:@"/path/to/file"];
 NSError *error = nil;
@@ -104,7 +108,6 @@ BOOL success = [fileManager removeItemAtURL:URL error:&error];
 if (!success && error){
     NSLog(@"Error: %@", error.domain);
 }
-*/
 
 //The equivalent in swift will be:
 import Foundation
@@ -158,6 +161,7 @@ class SecureStore {
         return NSUUID().UUIDString
     }
 }
+```
 
 //Throwing an Error:
 //objc
@@ -171,6 +175,7 @@ class SecureStore {
 //throw NSError(domain: NSURLErrorDomain, code: NSURLErrorCannotOpenFile, userInfo: nil)
 
 
+```swift
 
 //From Apple books, The Swift Programming Language it's seems erros should be handle using enum
 enum ServerResponse {
@@ -191,6 +196,7 @@ func test6(){
         print(serverResponse)
     }
 }
+```
 
 
 
