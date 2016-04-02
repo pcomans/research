@@ -1,3 +1,13 @@
+```swift
+enum Numbers: Int {
+	case One = 1, Two, Three, Four, Five
+}
+
+let value = Numbers.Three
+print(value.rawValue)//Output:3
+```
+
+
 
 ```swift
 //advance usage of enum: http://appventure.me/2015/10/17/advanced-practical-enum-examples/
