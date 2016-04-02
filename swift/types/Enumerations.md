@@ -1,3 +1,5 @@
+
+```swift
 //advance usage of enum: http://appventure.me/2015/10/17/advanced-practical-enum-examples/
 
 class EnumTest{//enumerations:
@@ -70,15 +72,15 @@ enum Character {
   case Warrior
   case Knight
 }
-Now you have a hierachical system to describe the various items that your character has access to.
+//Now you have a hierachical system to describe the various items that your character has access to.
 
 let character = Character.Thief
 let weapon = Character.Weapon.Bow
 let helmet = Character.Helmet.Iron
 
 //enums in structs:
-Containing Enums
-In a similar vein, you can also embed enums in structs or classes. Continuing with our previous example:
+//Containing Enums
+//In a similar vein, you can also embed enums in structs or classes. Continuing with our previous example:
 
 struct Character {
    enum CharacterType {
@@ -97,4 +99,5 @@ struct Character {
 }
 
 let warrior = Character(type: .Warrior, weapon: .Sword)
-This, again, helps in keeping related information together.
+//This, again, helps in keeping related information together.
+```
