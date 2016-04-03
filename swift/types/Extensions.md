@@ -1,3 +1,4 @@
+```swift
 /*
  Extensions in Swift
  Add methods and properties to existing types
@@ -81,3 +82,4 @@ struct MyCar: Vehicle {
         color = UIColor.redColor()
     }
 }
+```
