@@ -1,3 +1,6 @@
+**NOTES:**
+- Extension cant method overload like `var rgb:UInt{return 0} and var rgb:CGFloat{return 10.0}` These two variables won't work in the same extension type
+
 ```swift
 /*
  Extensions in Swift
